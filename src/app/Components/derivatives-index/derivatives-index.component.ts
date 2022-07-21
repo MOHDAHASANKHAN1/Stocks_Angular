@@ -11,6 +11,8 @@ import { DerivativeIndexService } from 'src/app/Services/derivative-index.servic
 })
 export class DerivativesIndexComponent implements OnInit {
 
+  Title: string = '';
+
   LiveDerivativeIndex: LiveDerivativeIndex[] = [];
   RecordedDerivativeIndex5m: RecordedDerivativeIndex[] = [];
   RecordedDerivativeIndex15m: RecordedDerivativeIndex[] = [];
@@ -44,6 +46,7 @@ export class DerivativesIndexComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private service: DerivativeIndexService) {
     this.route.paramMap.subscribe(params => {
       let indexname: any = params.get('indexname');
+      this.Title = indexname.toUpperCase();
       this.service.getLiveDerivativeIndex(indexname).subscribe((data: any) => {
         this.LiveDerivativeIndex = data;
       });
