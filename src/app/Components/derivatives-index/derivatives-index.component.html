@@ -1,8 +1,8 @@
-<div class="flex justify-center items-center my-10 mx-2">
-    <div *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate"
-        class="overflow-x-auto">
-        <div class="flex justify-between items-center overflow-x-auto">
-            <div class="px-1">
+<div
+    *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate">
+    <div class="mt-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-yellow-400">
                         <tr>
@@ -46,8 +46,6 @@
                         </ng-container>
                     </tbody>
                 </table>
-            </div>
-            <div class="px-1">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-orange-400">
                         <tr>
@@ -93,32 +91,43 @@
                 </table>
             </div>
         </div>
-
-        <div class="bg-pink-400 mt-10 py-5 px-2">
-            <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
-            <div class="flex justify-around items-center">
-                <div class="flex items-center">
-                    <input (click)="SelectTimeframe(5)" checked id="default-radio-1" type="radio" value=""
-                        name="default-radio"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="default-radio-1" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">5
-                        Minute
-                        Time Frame</label>
-                </div>
-                <div class="flex items-center">
-                    <input (click)="SelectTimeframe(15)" id="default-radio-2" type="radio" value="" name="default-radio"
-                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                    <label for="default-radio-2" class="ml-2 text-lg font-medium text-gray-900 dark:text-gray-300">15
-                        Minute
-                        Time Frame</label>
-                </div>
-            </div>
-        </div>
-
-        <ng-container *ngIf="Show; else elseTemplate">
-            <div class="mt-10">
+    </div>
+    <div class="flex justify-center mx-2 my-10">
+        <div class="overflow-x-auto">
+            <ng-container *ngIf="Show; else elseTemplate">
                 <table>
                     <thead class="font-bold text-white text-lg text-center">
+                        <tr>
+                            <th colspan="13" class="px-6 py-3 border-4 text-iv bg-pink-400 border-black">
+                                <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="px-6 py-3 border-4 border-black bg-pink-400">
+                                <input (click)="SelectTimeframe(5)" id="default-radio-1" type="radio" value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-radio-1"
+                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">5
+                                    Minute
+                                    Time Frame</label>
+                            </th>
+                            <th colspan="6" class="px-6 py-3 border-4 border-black bg-pink-400">
+                                <input (click)="SelectTimeframe(15)" checked id="default-radio-2" type="radio" value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-radio-2"
+                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">15
+                                    Minute
+                                    Time Frame</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="13" class="px-6 py-3 border-4 text-buy bg-cyan-700 border-black">
+                                <h1 class="text-lg text-center font-bold">INTRADAY DATA(Use This Indicator Only After
+                                    10:30AM)</h1>
+                            </th>
+                        </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
                                 Time</th>
@@ -172,7 +181,8 @@
                                 {{record.PCR}}</td>
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
-                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY</td>
+                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
+                            </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>
                             <td class="px-6 py-3 border-4 border-black"
@@ -191,12 +201,41 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </ng-container>
-        <ng-template #elseTemplate>
-            <div class="mt-10">
+            </ng-container>
+            <ng-template #elseTemplate>
                 <table>
                     <thead class="text-lg font-bold text-white text-center">
+                        <tr>
+                            <th colspan="13" class="px-6 py-3 text-iv border-4 border-black bg-pink-400">
+                                <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="7" class="px-6 py-3 border-4  border-black bg-pink-400">
+                                <input (click)="SelectTimeframe(5)" checked id="default-radio-3" type="radio" value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-radio-3"
+                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">5
+                                    Minute
+                                    Time Frame</label>
+                            </th>
+                            <th colspan="6" class="px-6 py-3 border-4  border-black bg-pink-400">
+                                <input (click)="SelectTimeframe(15)" id="default-radio-4" type="radio" value=""
+                                    name="default-radio"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="default-radio-4"
+                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">15
+                                    Minute
+                                    Time Frame</label>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th colspan="13" class="text-buy px-6 py-3 border-4 bg-cyan-700 border-black">
+                                <h1 class="text-lg text-center font-bold">INTRADAY DATA ( Use This Indicator Only After
+                                    10:30AM )</h1>
+                            </th>
+                        </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
                                 Time</th>
@@ -250,7 +289,8 @@
                                 {{record.PCR}}</td>
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
-                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY</td>
+                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
+                            </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>
                             <td class="px-6 py-3 border-4 border-black"
@@ -269,11 +309,12 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </ng-template>
-
+            </ng-template>
+        </div>
     </div>
-    <ng-template #elseTemplate>
-        <img src="../../../assets/Loader.gif" alt="">
-    </ng-template>
 </div>
+<ng-template #elseTemplate>
+    <div class="my-10 mx-2 flex justify-center">
+        <img src="../../../assets/Loader.gif" alt="">
+    </div>
+</ng-template>
