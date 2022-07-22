@@ -23,17 +23,21 @@
                         <ng-container *ngFor="let item of LiveDerivativeIndex">
                             <tr *ngFor="let record of item.Cdata">
                                 <td class="border-4 border-black bg-sky-600"
-                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Cdata, record.openInterest)}">
+                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Cdata, record.strikePrice)}">
                                     {{record.strikePrice}}</td>
                                 <td class="border-4 border-black bg-lprc">{{record.lastPrice}}</td>
                                 <td class="border-4 border-black bg-oic"
-                                    [ngClass]="{'bg-purple-700': Checklargest(item.Cdata, record.openInterest)}">
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Cdata, record.openInterest),'bg-stone-600 text-gray-50': Checkmin(item.Cdata, record.openInterest)}">
                                     {{record.openInterest}}</td>
                                 <td class="border-4 border-black"
-                                    [ngClass]="{'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
+                                    [ngClass]="{'bg-stone-600 text-gray-50': ChecklargestChngoin(item.Cdata, record.changeinOpenInterest),'bg-slate-800 text-white': ChecklargestChngoip(item.Cdata, record.changeinOpenInterest),'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
                                     {{record.changeinOpenInterest}}</td>
-                                <td class="border-4 border-black bg-oiv">{{record.totalTradedVolume}}</td>
-                                <td class="border-4 border-black bg-iv">{{record.impliedVolatility}}</td>
+                                <td class="border-4 border-black bg-oiv"
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargestvol(item.Cdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Cdata, record.totalTradedVolume)}">
+                                    {{record.totalTradedVolume}}</td>
+                                <td class="border-4 border-black bg-iv"
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargestiv(item.Cdata, record.impliedVolatility), 'bg-stone-600 text-gray-50': Checkminiv(item.Cdata, record.impliedVolatility)}">
+                                    {{record.impliedVolatility}}</td>
                             </tr>
                             <tr class="border-4 border-red-700 font-bold text-teal-700 bg-yellow-400 text-lg">
                                 <td>Total</td>
@@ -66,17 +70,21 @@
                         <ng-container *ngFor="let item of LiveDerivativeIndex">
                             <tr *ngFor="let record of item.Pdata">
                                 <td class="border-4 border-black bg-sky-600"
-                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Pdata, record.openInterest)}">
+                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Cdata, record.strikePrice)}">
                                     {{record.strikePrice}}</td>
                                 <td class="border-4 border-black bg-lprc">{{record.lastPrice}}</td>
                                 <td class="border-4 border-black bg-oic"
-                                    [ngClass]="{'bg-purple-700': Checklargest(item.Pdata, record.openInterest)}">
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Pdata, record.openInterest),'bg-stone-600 text-gray-50': Checkmin(item.Pdata, record.openInterest)}">
                                     {{record.openInterest}}</td>
                                 <td class="border-4 border-black"
-                                    [ngClass]="{'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
+                                    [ngClass]="{'bg-stone-600 text-gray-50': ChecklargestChngoin(item.Pdata, record.changeinOpenInterest),'bg-slate-800 text-white': ChecklargestChngoip(item.Pdata, record.changeinOpenInterest),'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
                                     {{record.changeinOpenInterest}}</td>
-                                <td class="border-4 border-black bg-oiv">{{record.totalTradedVolume}}</td>
-                                <td class="border-4 border-black bg-iv">{{record.impliedVolatility}}</td>
+                                <td class="border-4 border-black bg-oiv"
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargestvol(item.Pdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Pdata, record.totalTradedVolume)}">
+                                    {{record.totalTradedVolume}}</td>
+                                <td class="border-4 border-black bg-iv"
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargestiv(item.Pdata, record.impliedVolatility), 'bg-stone-600 text-gray-50': Checkminiv(item.Pdata, record.impliedVolatility)}">
+                                    {{record.impliedVolatility}}</td>
                             </tr>
                             <tr class="border-4  border-red-700 font-bold text-teal-700 bg-yellow-400 text-lg">
                                 <td>Total</td>
@@ -98,12 +106,12 @@
                 <table>
                     <thead class="font-bold text-white text-lg text-center">
                         <tr>
-                            <th colspan="13" class="px-6 py-3 border-4 text-iv bg-pink-400 border-black">
+                            <th colspan="15" class="px-6 py-3 border-4 text-iv bg-pink-400 border-black">
                                 <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="7" class="px-6 py-3 border-4 border-black bg-pink-400">
+                            <th colspan="8" class="px-6 py-3 border-4 border-black bg-pink-400">
                                 <input (click)="SelectTimeframe(5)" id="default-radio-1" type="radio" value=""
                                     name="default-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -112,7 +120,7 @@
                                     Minute
                                     Time Frame</label>
                             </th>
-                            <th colspan="6" class="px-6 py-3 border-4 border-black bg-pink-400">
+                            <th colspan="7" class="px-6 py-3 border-4 border-black bg-pink-400">
                                 <input (click)="SelectTimeframe(15)" checked id="default-radio-2" type="radio" value=""
                                     name="default-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -123,9 +131,9 @@
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="13" class="px-6 py-3 border-4 text-buy bg-cyan-700 border-black">
-                                <h1 class="text-lg text-center font-bold">INTRADAY DATA(Use This Indicator Only After
-                                    10:30AM)</h1>
+                            <th colspan="15" class="px-6 py-3 border-4 text-buy bg-cyan-700 border-black">
+                                <h1 class="text-lg text-center font-bold">INTRADAY DATA ( Use This Indicator Only After
+                                    10:30AM )</h1>
                             </th>
                         </tr>
                         <tr>
@@ -137,9 +145,9 @@
                             </th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
                                 Difference</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">PCR
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">PCR
                             </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
                                 Option Signal</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="3">
                                 Prices</th>
@@ -148,11 +156,15 @@
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">VOL</th>
+                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Index </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Future </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">VWAP </th>
@@ -179,9 +191,16 @@
                             <td class="px-6 py-3 border-4 border-black"
                                 [ngClass]="{'bg-pcrbo': record.PCR>1, 'bg-pcrso':record.PCR<1,'bg-pcrr':record.PCR==1}">
                                 {{record.PCR}}</td>
+                            <td class="px-6 py-3 border-4 border-black"
+                                [ngClass]="{'bg-pcrbo': record.OPCR>1, 'bg-pcrso':record.OPCR<1,'bg-pcrr':record.OPCR==1}">
+                                {{record.OPCR}}</td>
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
                             <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
+                            </td>
+                            <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.OPCR>1">BUY</td>
+                            <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.OPCR<1">SELL</td>
+                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.OPCR==1">READY
                             </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>
@@ -206,12 +225,12 @@
                 <table>
                     <thead class="text-lg font-bold text-white text-center">
                         <tr>
-                            <th colspan="13" class="px-6 py-3 text-iv border-4 border-black bg-pink-400">
+                            <th colspan="15" class="px-6 py-3 text-iv border-4 border-black bg-pink-400">
                                 <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="7" class="px-6 py-3 border-4  border-black bg-pink-400">
+                            <th colspan="8" class="px-6 py-3 border-4  border-black bg-pink-400">
                                 <input (click)="SelectTimeframe(5)" checked id="default-radio-3" type="radio" value=""
                                     name="default-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -220,7 +239,7 @@
                                     Minute
                                     Time Frame</label>
                             </th>
-                            <th colspan="6" class="px-6 py-3 border-4  border-black bg-pink-400">
+                            <th colspan="7" class="px-6 py-3 border-4  border-black bg-pink-400">
                                 <input (click)="SelectTimeframe(15)" id="default-radio-4" type="radio" value=""
                                     name="default-radio"
                                     class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
@@ -231,7 +250,7 @@
                             </th>
                         </tr>
                         <tr>
-                            <th colspan="13" class="text-buy px-6 py-3 border-4 bg-cyan-700 border-black">
+                            <th colspan="15" class="text-buy px-6 py-3 border-4 bg-cyan-700 border-black">
                                 <h1 class="text-lg text-center font-bold">INTRADAY DATA ( Use This Indicator Only After
                                     10:30AM )</h1>
                             </th>
@@ -245,9 +264,9 @@
                             </th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
                                 Difference</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">PCR
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">PCR
                             </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
                                 Option Signal</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="3">
                                 Prices</th>
@@ -256,11 +275,15 @@
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">VOL</th>
+                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
+                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Index </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Future </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">VWAP </th>
@@ -287,9 +310,16 @@
                             <td class="px-6 py-3 border-4 border-black"
                                 [ngClass]="{'bg-pcrbo': record.PCR>1, 'bg-pcrso':record.PCR<1,'bg-pcrr':record.PCR==1}">
                                 {{record.PCR}}</td>
+                            <td class="px-6 py-3 border-4 border-black"
+                                [ngClass]="{'bg-pcrbo': record.OPCR>1, 'bg-pcrso':record.OPCR<1,'bg-pcrr':record.OPCR==1}">
+                                {{record.OPCR}}</td>
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
                             <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
+                            </td>
+                            <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.OPCR>1">BUY</td>
+                            <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.OPCR<1">SELL</td>
+                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.OPCR==1">READY
                             </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>

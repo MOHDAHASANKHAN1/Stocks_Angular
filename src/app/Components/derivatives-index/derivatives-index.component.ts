@@ -35,9 +35,51 @@ export class DerivativesIndexComponent implements OnInit {
     }
     return false;
   }
+  Checkmin(arr: any, value: any): boolean {
+    if ((Math.min(...arr.map((i: any) => i.openInterest))) == value) {
+      return true;
+    }
+    return false;
+  }
+  Checklargestvol(arr: any, value: any): boolean {
+    if ((Math.max(...arr.map((i: any) => i.totalTradedVolume))) == value) {
+      return true;
+    }
+    return false;
+  }
+  Checkminvol(arr: any, value: any): boolean {
+    if ((Math.min(...arr.map((i: any) => i.totalTradedVolume))) == value) {
+      return true;
+    }
+    return false;
+  }
+  Checklargestiv(arr: any, value: any): boolean {
+    if ((Math.max(...arr.map((i: any) => i.impliedVolatility))) == value) {
+      return true;
+    }
+    return false;
+  }
+  Checkminiv(arr: any, value: any): boolean {
+    if ((Math.min(...arr.map((i: any) => i.impliedVolatility))) == value) {
+      return true;
+    }
+    return false;
+  }
+  ChecklargestChngoip(arr: any, value: any): boolean {
+    if ((Math.max(...arr.map((i: any) => i.changeinOpenInterest))) == value) {
+      return true;
+    }
+    return false;
+  }
+  ChecklargestChngoin(arr: any, value: any): boolean {
+    if ((Math.min(...arr.map((i: any) => i.changeinOpenInterest))) == value) {
+      return true;
+    }
+    return false;
+  }
 
   Checkcentre(arr: any, value: any): boolean {
-    if ((arr[(arr.length - 1) / 2].openInterest) == value) {
+    if ((arr[(arr.length - 1) / 2].strikePrice) == value) {
       return true;
     }
     return false;

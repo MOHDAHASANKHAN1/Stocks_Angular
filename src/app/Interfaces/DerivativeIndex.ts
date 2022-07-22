@@ -7,6 +7,7 @@ export interface RecordedDerivativeIndex {
     PEtotChangeInOI: number,
     CEtotChangeInOI: number,
     DiffChangeInOI: number,
+    OPCR: number,
     PCR: number,
     Original_Price: String,
     Future_Price: number,
@@ -24,6 +25,7 @@ interface LiveDerivativeIndexArray {
 }
 
 export interface LiveDerivativeIndex {
+    _id: String,
     Time: String,
     PEtotOI: number,
     CEtotOI: number,
@@ -33,4 +35,5 @@ export interface LiveDerivativeIndex {
     CEtotChangeInOI: number,
     Pdata: LiveDerivativeIndexArray[],
     Cdata: LiveDerivativeIndexArray[]
+    __v: number
 }
