@@ -27,16 +27,16 @@
                                     {{record.strikePrice}}</td>
                                 <td class="border-4 border-black bg-lprc">{{record.lastPrice}}</td>
                                 <td class="border-4 border-black bg-oic"
-                                    [ngClass]="{'bg-large text-white': Checklargest(item.Cdata, record.openInterest),'bg-min text-gray-50': Checkmin(item.Cdata, record.openInterest)}">
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Cdata, record.openInterest),'bg-stone-800 text-gray-50': Checkmin(item.Cdata, record.openInterest)}">
                                     {{record.openInterest}}</td>
                                 <td class="border-4 border-black"
-                                    [ngClass]="{'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1,'bg-min text-gray-50': ChecklargestChngoin(item.Cdata, record.changeinOpenInterest),'bg-large text-white': ChecklargestChngoip(item.Cdata, record.changeinOpenInterest)}">
+                                    [ngClass]="{'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1,'bg-stone-700 text-gray-50': ChecklargestChngoin(item.Cdata, record.changeinOpenInterest),'bg-slate-700 text-white': ChecklargestChngoip(item.Cdata, record.changeinOpenInterest)}">
                                     {{record.changeinOpenInterest}}</td>
                                 <td class="border-4 border-black bg-oiv"
-                                    [ngClass]="{'bg-large text-white': Checklargestvol(item.Cdata, record.totalTradedVolume),'bg-min text-gray-50': Checkminvol(item.Cdata, record.totalTradedVolume)}">
+                                    [ngClass]="{'bg-slate-600 text-white': Checklargestvol(item.Cdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Cdata, record.totalTradedVolume)}">
                                     {{record.totalTradedVolume}}</td>
                                 <td class="border-4 border-black bg-iv"
-                                    [ngClass]="{'bg-large text-white': Checklargestiv(item.Cdata, record.impliedVolatility), 'bg-min text-gray-50': Checkminiv(item.Cdata, record.impliedVolatility)}">
+                                    [ngClass]="{'bg-slate-500 text-white': Checklargestiv(item.Cdata, record.impliedVolatility), 'bg-stone-500 text-gray-50': Checkminiv(item.Cdata, record.impliedVolatility)}">
                                     {{record.impliedVolatility}}</td>
                             </tr>
                             <tr class="border-4 border-red-700 font-bold text-teal-700 bg-yellow-400 text-lg">
@@ -74,16 +74,16 @@
                                     {{record.strikePrice}}</td>
                                 <td class="border-4 border-black bg-lprc">{{record.lastPrice}}</td>
                                 <td class="border-4 border-black bg-oic"
-                                    [ngClass]="{'bg-large text-white': Checklargest(item.Pdata, record.openInterest),'bg-min text-gray-50': Checkmin(item.Pdata, record.openInterest)}">
+                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Pdata, record.openInterest),'bg-stone-800 text-gray-50': Checkmin(item.Pdata, record.openInterest)}">
                                     {{record.openInterest}}</td>
                                 <td class="border-4 border-black"
-                                    [ngClass]="{'bg-min text-gray-50': ChecklargestChngoin(item.Pdata, record.changeinOpenInterest),'bg-large text-white': ChecklargestChngoip(item.Pdata, record.changeinOpenInterest),'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
+                                    [ngClass]="{'bg-stone-700 text-gray-50': ChecklargestChngoin(item.Pdata, record.changeinOpenInterest),'bg-slate-700 text-white': ChecklargestChngoip(item.Pdata, record.changeinOpenInterest),'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
                                     {{record.changeinOpenInterest}}</td>
                                 <td class="border-4 border-black bg-oiv"
-                                    [ngClass]="{'bg-large text-white': Checklargestvol(item.Pdata, record.totalTradedVolume),'bg-min text-gray-50': Checkminvol(item.Pdata, record.totalTradedVolume)}">
+                                    [ngClass]="{'bg-slate-600 text-white': Checklargestvol(item.Pdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Pdata, record.totalTradedVolume)}">
                                     {{record.totalTradedVolume}}</td>
                                 <td class="border-4 border-black bg-iv"
-                                    [ngClass]="{'bg-large text-white': Checklargestiv(item.Pdata, record.impliedVolatility), 'bg-min text-gray-50': Checkminiv(item.Pdata, record.impliedVolatility)}">
+                                    [ngClass]="{'bg-slate-500 text-white': Checklargestiv(item.Pdata, record.impliedVolatility), 'bg-stone-500 text-gray-50': Checkminiv(item.Pdata, record.impliedVolatility)}">
                                     {{record.impliedVolatility}}</td>
                             </tr>
                             <tr class="border-4  border-red-700 font-bold text-teal-700 bg-yellow-400 text-lg">
