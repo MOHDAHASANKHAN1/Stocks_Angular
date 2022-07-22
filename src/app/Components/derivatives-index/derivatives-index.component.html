@@ -1,9 +1,8 @@
 <div class="flex justify-center items-center my-10 mx-2">
-    <div
-        *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate">
-
-        <div class="flex justify-around items-center">
-            <div class="overflow-x-auto">
+    <div *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate"
+        class="overflow-x-auto">
+        <div class="flex justify-between items-center overflow-x-auto">
+            <div class="px-1">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-yellow-400">
                         <tr>
@@ -48,7 +47,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="overflow-x-auto">
+            <div class="px-1">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-orange-400">
                         <tr>
@@ -94,7 +93,8 @@
                 </table>
             </div>
         </div>
-        <div class="bg-pink-400 mt-10 py-5">
+
+        <div class="bg-pink-400 mt-10 py-5 px-2">
             <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
             <div class="flex justify-around items-center">
                 <div class="flex items-center">
@@ -114,8 +114,9 @@
                 </div>
             </div>
         </div>
+
         <ng-container *ngIf="Show; else elseTemplate">
-            <div class="overflow-x-auto mt-10">
+            <div class="mt-10">
                 <table>
                     <thead class="font-bold text-white text-lg text-center">
                         <tr>
@@ -193,7 +194,7 @@
             </div>
         </ng-container>
         <ng-template #elseTemplate>
-            <div class="overflow-x-auto mt-10">
+            <div class="mt-10">
                 <table>
                     <thead class="text-lg font-bold text-white text-center">
                         <tr>
