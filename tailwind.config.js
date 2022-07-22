@@ -19,7 +19,9 @@ module.exports = {
         'oiv': '#f79af1',
         'lprc': '#04fb93',
         'iv': '#00ffff',
-        'vwap': '#006699'
+        'vwap': '#006699',
+        'large': 'rgb(15 23 42)',
+        'min': 'rgb(68 64 60)'
       }
     },
   },
