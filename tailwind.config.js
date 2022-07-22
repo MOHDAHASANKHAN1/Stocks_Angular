@@ -20,8 +20,8 @@ module.exports = {
         'lprc': '#04fb93',
         'iv': '#00ffff',
         'vwap': '#006699',
-        'large': 'rgb(15 23 42)',
-        'min': 'rgb(68 64 60)'
+        'large': '#660000',
+        'min': '#404040'
       }
     },
   },
