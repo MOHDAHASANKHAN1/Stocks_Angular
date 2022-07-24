@@ -19,6 +19,8 @@ export class DerivativeIndexService {
     return this.http.get<RecordedDerivativeIndex>(`https://stocks-backend-nse.herokuapp.com/recorded-${Symbol}-15m`);
   }
 
+
+
   constructor(private http: HttpClient) { }
 
 }

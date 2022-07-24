@@ -1,0 +1,215 @@
+<div *ngIf="OHL; else elseTemplate">
+    <div class="mt-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center bg-yellow-400">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="13">Open High Equal Stocks
+                                With Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Value</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OHWN of OHL.OHWN">
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.symbol}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.open}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.dayHigh}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.lastPrice}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.dayLow}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.totalTradedValue}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.change}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.isGainers}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.GainersType}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.isMostActive}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWN.ActiveType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mt-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center bg-yellow-400">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="13">Open High Equal Stocks
+                                Without Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Value</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OHWTN of OHL.OHWTN">
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.symbol}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.open}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.dayHigh}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.lastPrice}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.dayLow}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.totalTradedValue}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.change}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.isGainers}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.GainersType}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.isMostActive}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OHWTN.ActiveType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mt-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center bg-yellow-400">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="13">Open Low Equal Stocks
+                                With Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Value</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OLWN of OHL.OLWN">
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.symbol}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.open}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.dayLow}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.lastPrice}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.dayHigh}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.totalTradedValue}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.change}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.isGainers}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.GainersType}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.isMostActive}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWN.ActiveType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="my-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center bg-yellow-400">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="13">Open Low Equal Stocks
+                                Without Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Value</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OLWTN of OHL.OLWTN">
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.symbol}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.open}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.dayLow}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.lastPrice}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.dayHigh}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.totalTradedValue}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.change}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.isGainers}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.GainersType}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.isMostActive}}</td>
+                            <td class="px-6 py-3 border-4 border-black">{{OLWTN.ActiveType}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseTemplate>
+    <div class="my-10 mx-2 flex justify-center">
+        <img src="../../../assets/Loader.gif" alt="">
+    </div>
+</ng-template>

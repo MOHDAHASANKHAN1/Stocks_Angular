@@ -85,7 +85,7 @@ export class DerivativesIndexComponent implements OnInit {
     return false;
   }
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private service: DerivativeIndexService) {
+  constructor(private route: ActivatedRoute, private service: DerivativeIndexService) {
     this.route.paramMap.subscribe(params => {
       let indexname: any = params.get('indexname');
       this.Title = indexname.toUpperCase();
