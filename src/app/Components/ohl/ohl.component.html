@@ -1,11 +1,11 @@
 <div *ngIf="OHL; else elseTemplate">
-    <div class="mt-10 mx-2 flex justify-center">
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWN.length!==0">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open High
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="14">Open High
                                 Equal
                                 Stocks
                                 With Rounded Number
@@ -23,6 +23,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
@@ -53,133 +54,17 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(OHWN.isMostActive),'bg-sell': CheckNo(OHWN.isMostActive)}">
                                 {{OHWN.ActiveType}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{OHWN.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    <div class="mt-10 mx-2 flex justify-center">
-        <div class="overflow-x-auto">
-            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
-                <table>
-                    <thead class="text-white text-lg font-bold text-center">
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open Low
-                                Equal
-                                Stocks
-                                Without Rounded Number
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
-                            </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-base text-center">
-                        <tr *ngFor="let OLWTN of OHL.OLWTN">
-                            <td class="px-6 py-3 border-4 border-black bg-sky-600">{{OLWTN.symbol}}</td>
-                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OLWTN.open}}</td>
-                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OLWTN.dayLow}}</td>
-                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{OLWTN.lastPrice}}</td>
-                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{OLWTN.dayHigh}}</td>
-                            <td class="px-6 py-3 bg-volume border-4 border-black">{{OLWTN.totalTradedVolume}}</td>
-                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{OLWTN.change}}</td>
-                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{OLWTN.pChange}}</td>
-                            <td class="px-6 py-3 border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isGainers),'bg-sell': CheckNo(OLWTN.isGainers)}">
-                                {{OLWTN.isGainers}}</td>
-                            <td class="px-6 py-3 border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isGainers),'bg-sell': CheckNo(OLWTN.isGainers)}">
-                                {{OLWTN.isGainers}}</td>
-                            <td class="px-6 py-3  border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isMostActive),'bg-sell': CheckNo(OLWTN.isMostActive)}">
-                                {{OLWTN.isMostActive}}</td>
-                            <td class="px-6 py-3  border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isMostActive),'bg-sell': CheckNo(OLWTN.isMostActive)}">
-                                {{OLWTN.ActiveType}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="mt-10 mx-2 flex justify-center">
-        <div class="overflow-x-auto">
-            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
-                <table>
-                    <thead class="text-white text-lg font-bold text-center">
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open High
-                                Equal
-                                Stocks
-                                Without Rounded Number
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
-                            </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-base text-center">
-                        <tr *ngFor="let OHWTN of OHL.OHWTN">
-                            <td class="px-6 py-3 border-4 border-black bg-sky-600">{{OHWTN.symbol}}</td>
-                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OHWTN.open}}</td>
-                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OHWTN.dayHigh}}</td>
-                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{OHWTN.lastPrice}}</td>
-                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{OHWTN.dayLow}}</td>
-                            <td class="px-6 py-3 bg-volume border-4 border-black">{{OHWTN.totalTradedVolume}}</td>
-                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{OHWTN.change}}</td>
-                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{OHWTN.pChange}}</td>
-                            <td class="px-6 py-3 border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isGainers),'bg-sell': CheckNo(OHWTN.isGainers)}">
-                                {{OHWTN.isGainers}}</td>
-                            <td class="px-6 py-3  border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isGainers),'bg-sell': CheckNo(OHWTN.isGainers)}">
-                                {{OHWTN.GainersType}}</td>
-                            <td class="px-6 py-3  border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isMostActive),'bg-sell': CheckNo(OHWTN.isMostActive)}">
-                                {{OHWTN.isMostActive}}</td>
-                            <td class="px-6 py-3  border-4 border-black"
-                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isMostActive),'bg-sell': CheckNo(OHWTN.isMostActive)}">
-                                {{OHWTN.ActiveType}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="my-10 mx-2 flex justify-center">
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OLWN.length!==0">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
@@ -203,6 +88,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
@@ -233,6 +119,140 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(OLWN.isMostActive),'bg-sell': CheckNo(OLWN.isMostActive)}">
                                 {{OLWN.ActiveType}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{OLWN.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWTN.length!==0">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open High
+                                Equal
+                                Stocks
+                                Without Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OHWTN of OHL.OHWTN">
+                            <td class="px-6 py-3 border-4 border-black bg-sky-600">{{OHWTN.symbol}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OHWTN.open}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OHWTN.dayHigh}}</td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{OHWTN.lastPrice}}</td>
+                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{OHWTN.dayLow}}</td>
+                            <td class="px-6 py-3 bg-volume border-4 border-black">{{OHWTN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{OHWTN.change}}</td>
+                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{OHWTN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isGainers),'bg-sell': CheckNo(OHWTN.isGainers)}">
+                                {{OHWTN.isGainers}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isGainers),'bg-sell': CheckNo(OHWTN.isGainers)}">
+                                {{OHWTN.GainersType}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isMostActive),'bg-sell': CheckNo(OHWTN.isMostActive)}">
+                                {{OHWTN.isMostActive}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OHWTN.isMostActive),'bg-sell': CheckNo(OHWTN.isMostActive)}">
+                                {{OHWTN.ActiveType}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{OHWTN.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="my-10 mx-2 flex justify-center" *ngIf="OHL.OLWTN.length!==0">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open Low
+                                Equal
+                                Stocks
+                                Without Rounded Number
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">ActiveType</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let OLWTN of OHL.OLWTN">
+                            <td class="px-6 py-3 border-4 border-black bg-sky-600">{{OLWTN.symbol}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OLWTN.open}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{OLWTN.dayLow}}</td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{OLWTN.lastPrice}}</td>
+                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{OLWTN.dayHigh}}</td>
+                            <td class="px-6 py-3 bg-volume border-4 border-black">{{OLWTN.totalTradedVolume}}</td>
+                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{OLWTN.change}}</td>
+                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{OLWTN.pChange}}</td>
+                            <td class="px-6 py-3 border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isGainers),'bg-sell': CheckNo(OLWTN.isGainers)}">
+                                {{OLWTN.isGainers}}</td>
+                            <td class="px-6 py-3 border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isGainers),'bg-sell': CheckNo(OLWTN.isGainers)}">
+                                {{OLWTN.isGainers}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isMostActive),'bg-sell': CheckNo(OLWTN.isMostActive)}">
+                                {{OLWTN.isMostActive}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(OLWTN.isMostActive),'bg-sell': CheckNo(OLWTN.isMostActive)}">
+                                {{OLWTN.ActiveType}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{OLWTN.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

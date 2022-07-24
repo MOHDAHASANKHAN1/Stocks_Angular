@@ -5,7 +5,7 @@
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Top
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="14">Today Top
                                 Gainers Stocks
                             </th>
                         </tr>
@@ -21,6 +21,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
@@ -51,6 +52,10 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(TopGainers.isNifty50),'bg-sell': CheckNo(TopGainers.isNifty50)}">
                                 {{TopGainers.isNifty50}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{TopGainers.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -63,7 +68,7 @@
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Top
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="14">Today Top
                                 Loosers Stocks
                             </th>
                         </tr>
@@ -79,6 +84,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isMostActive</th>
@@ -109,6 +115,10 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(TopLoosers.isNifty50),'bg-sell': CheckNo(TopLoosers.isNifty50)}">
                                 {{TopLoosers.isNifty50}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{TopLoosers.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

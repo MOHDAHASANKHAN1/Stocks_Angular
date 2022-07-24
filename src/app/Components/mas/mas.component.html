@@ -5,7 +5,7 @@
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Most
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Today Most
                                 Actives Stocks By Volume
                             </th>
                         </tr>
@@ -21,6 +21,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
@@ -54,6 +55,10 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(MostActivebyVolume.isNifty50),'bg-sell': CheckNo(MostActivebyVolume.isNifty50)}">
                                 {{MostActivebyVolume.isNifty50}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{MostActivebyVolume.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -66,7 +71,7 @@
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Most
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Today Most
                                 Actives Stocks By Value
                             </th>
                         </tr>
@@ -82,6 +87,7 @@
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Go To Chart</th>
                         </tr>
                         <tr>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
@@ -113,6 +119,10 @@
                             <td class="px-6 py-3  border-4 border-black"
                                 [ngClass]="{'bg-buy': CheckYes(MostActivebyValue.isNifty50),'bg-sell': CheckNo(MostActivebyValue.isNifty50)}">
                                 {{MostActivebyValue.isNifty50}}</td>
+                            <td class="px-6 py-3 text-blue-700 bg-iv border-4 border-black">
+                                <u><i><a href="https://in.tradingview.com/chart/?symbol=NSE%3A{{MostActivebyValue.symbol}}"
+                                            target="_blank">Link</a></i></u>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
