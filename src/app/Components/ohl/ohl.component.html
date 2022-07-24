@@ -1,12 +1,12 @@
 <div *ngIf="OHL; else elseTemplate">
-    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWN.length!==0">
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWN.length!==0; else elseTemplate1">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="14">Open High
-                                Equal
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="14">Open Equal To
+                                High
                                 Stocks
                                 With Rounded Number
                             </th>
@@ -64,14 +64,27 @@
             </div>
         </div>
     </div>
-    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OLWN.length!==0">
+    <ng-template #elseTemplate1>
+        <div class="mt-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg  bg-cyan-700 text-buy">There Is No Any Open Equal To
+                    High
+                    Stocks
+                    With Rounded Number</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OLWN.length!==0; else elseTemplate2">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open Low
-                                Equal
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open Equal To
+                                Low
                                 Stocks
                                 With Rounded Number
                             </th>
@@ -129,14 +142,27 @@
             </div>
         </div>
     </div>
-    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWTN.length!==0">
+    <ng-template #elseTemplate2>
+        <div class="mt-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg  bg-cyan-700 text-buy">There Is No Any Open Equal To
+                    Low
+                    Stocks
+                    With Rounded Number</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWTN.length!==0; else elseTemplate3">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center">
                         <tr>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open High
-                                Equal
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="13">Open Equal To
+                                High
                                 Stocks
                                 Without Rounded Number
                             </th>
@@ -194,7 +220,20 @@
             </div>
         </div>
     </div>
-    <div class="my-10 mx-2 flex justify-center" *ngIf="OHL.OLWTN.length!==0">
+    <ng-template #elseTemplate3>
+        <div class="mt-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg bg-cyan-700 text-buy">There Is No Any Open Equal To
+                    High
+                    Stocks
+                    Without Rounded Number</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="my-10 mx-2 flex justify-center" *ngIf="OHL.OLWTN.length!==0; else elseTemplate4">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
@@ -259,6 +298,18 @@
             </div>
         </div>
     </div>
+    <ng-template #elseTemplate4>
+        <div class="my-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg  bg-cyan-700 text-buy">There Is No Any Open Equal To Low
+                    Stocks
+                    Without Rounded Number</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>
 <ng-template #elseTemplate>
     <div class="my-10 mx-2 flex justify-center">

@@ -1,5 +1,5 @@
 <div *ngIf="TGNL; else elseTemplate">
-    <div class="mt-10 mx-2 flex justify-center">
+    <div class="mt-10 mx-2 flex justify-center" *ngIf="TGNL.TopGainers.length!==0; else elseTemplate1">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
@@ -62,7 +62,18 @@
             </div>
         </div>
     </div>
-    <div class="my-10 mx-2 flex justify-center">
+    <ng-template #elseTemplate1>
+        <div class="my-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg  bg-cyan-700 text-buy">Today There Is No Any Top
+                    Gainers Stocks</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    <div class="my-10 mx-2 flex justify-center" *ngIf="TGNL.TopLoosers.length!==0; else elseTemplate2">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
@@ -125,6 +136,17 @@
             </div>
         </div>
     </div>
+    <ng-template #elseTemplate2>
+        <div class="my-10 mx-2 flex justify-center">
+            <div class="border-4 border-black">
+                <h1 class="px-6 py-3 text-lg  bg-cyan-700 text-buy">Today There Is No Any Top
+                    Loosers Stocks</h1>
+                <div class="flex justify-center">
+                    <img src="../../../assets//EmptyBox.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </ng-template>
 </div>
 <ng-template #elseTemplate>
     <div class="my-10 mx-2 flex justify-center">
