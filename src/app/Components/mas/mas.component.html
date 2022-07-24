@@ -1,1 +1,127 @@
-<p>mas works!</p>
+<div *ngIf="MAS; else elseTemplate">
+    <div class="mt-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Most
+                                Actives Stocks By Volume
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Volume</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Gainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isFNO</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isNifty50</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let MostActivebyVolume of MAS.MostActivebyVolume">
+                            <td class="px-6 py-3  border-4 border-black bg-sky-600">{{MostActivebyVolume.symbol}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{MostActivebyVolume.open}}</td>
+                            <td class="px-6 py-3 bg-yellow-500 border-4 border-black">{{MostActivebyVolume.dayHigh}}
+                            </td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{MostActivebyVolume.lastPrice}}</td>
+                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{MostActivebyVolume.dayLow}}</td>
+                            <td class="px-6 py-3 bg-volume border-4 border-black">
+                                {{MostActivebyVolume.totalTradedVolume}}
+                            </td>
+                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{MostActivebyVolume.change}}</td>
+                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{MostActivebyVolume.pChange}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyVolume.isGainers),'bg-sell': CheckNo(MostActivebyVolume.isGainers)}">
+                                {{MostActivebyVolume.isGainers}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyVolume.isGainers),'bg-sell': CheckNo(MostActivebyVolume.isGainers)}">
+                                {{MostActivebyVolume.GainersType}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyVolume.isFNO),'bg-sell': CheckNo(MostActivebyVolume.isFNO)}">
+                                {{MostActivebyVolume.isFNO}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyVolume.isNifty50),'bg-sell': CheckNo(MostActivebyVolume.isNifty50)}">
+                                {{MostActivebyVolume.isNifty50}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="my-10 mx-2 flex justify-center">
+        <div class="overflow-x-auto">
+            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+                <table>
+                    <thead class="text-white text-lg font-bold text-center">
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-700 text-buy" colspan="12">Today Most
+                                Actives Stocks By Value
+                            </th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Symbol</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Open</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">High</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Low
+                            </th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">CMP</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Value</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="2">P% Change</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">MostActives</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">Stock Type</th>
+                        </tr>
+                        <tr>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isGainers</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">GainersType</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isFNO</th>
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500">isNifty50</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-bold text-base text-center">
+                        <tr *ngFor="let MostActivebyValue of MAS.MostActivebyValue">
+                            <td class="px-6 py-3  border-4 border-black bg-sky-600">{{MostActivebyValue.symbol}}</td>
+                            <td class="px-6 py-3 bg-oi border-4 border-black">{{MostActivebyValue.open}}</td>
+                            <td class="px-6 py-3 bg-yellow-500 border-4 border-black">{{MostActivebyValue.dayHigh}}</td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{MostActivebyValue.lastPrice}}</td>
+                            <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{MostActivebyValue.dayLow}}</td>
+                            <td class="px-6 py-3 bg-volume border-4 border-black">
+                                {{MostActivebyValue.totalTradedValue}}</td>
+                            <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{MostActivebyValue.change}}</td>
+                            <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{MostActivebyValue.pChange}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyValue.isGainers),'bg-sell': CheckNo(MostActivebyValue.isGainers)}">
+                                {{MostActivebyValue.isGainers}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyValue.isGainers),'bg-sell': CheckNo(MostActivebyValue.isGainers)}">
+                                {{MostActivebyValue.GainersType}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyValue.isFNO),'bg-sell': CheckNo(MostActivebyValue.isFNO)}">
+                                {{MostActivebyValue.isFNO}}</td>
+                            <td class="px-6 py-3  border-4 border-black"
+                                [ngClass]="{'bg-buy': CheckYes(MostActivebyValue.isNifty50),'bg-sell': CheckNo(MostActivebyValue.isNifty50)}">
+                                {{MostActivebyValue.isNifty50}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseTemplate>
+    <div class="my-10 mx-2 flex justify-center">
+        <img src="../../../assets/Loader.gif" alt="">
+    </div>
+</ng-template>
