@@ -1,8 +1,15 @@
 <div
     *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate">
+
     <div class="mt-10 mx-2 flex justify-center">
         <div class="overflow-x-auto">
-            <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
+            <div class="flex justify-center bg-cyan-500">
+                <h1 class="py-3 text-center text-white text-lg font-bold">{{Title}} DATA</h1>
+                <ng-container *ngFor="let item of LiveDerivativeIndex">
+                    <h1 class="px-4 py-3 text-center text-white text-lg font-bold">{{item.Date}}</h1>
+                </ng-container>
+            </div>
+            <div class="mt-5 flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-yellow-400">
                         <tr>
@@ -147,7 +154,7 @@
                                 Difference</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">PCR
                             </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
                                 Option Signal</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="3">
                                 Prices</th>
@@ -163,8 +170,6 @@
                             <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
                             <th class="px-6 py-3 border-4 border-black bg-orange-400">VOL</th>
-                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Index </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Future </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">VWAP </th>
@@ -197,10 +202,6 @@
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
                             <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
-                            </td>
-                            <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.OPCR>1">BUY</td>
-                            <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.OPCR<1">SELL</td>
-                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.OPCR==1">READY
                             </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>
@@ -266,7 +267,7 @@
                                 Difference</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">PCR
                             </th>
-                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="2">
+                            <th class="px-6 py-3 border-4 border-black bg-cyan-500" rowspan="3">
                                 Option Signal</th>
                             <th class="px-6 py-3 border-4 border-black bg-cyan-500" colspan="3">
                                 Prices</th>
@@ -282,8 +283,6 @@
                             <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
                             <th class="px-6 py-3 border-4 border-black bg-orange-400">VOL</th>
-                            <th class="px-6 py-3 border-4 border-black bg-purple-500">OI</th>
-                            <th class="px-6 py-3 border-4 border-black bg-orange-400">Vol</th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Index </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">Future </th>
                             <th class="px-6 py-3 border-4 border-black bg-lime-500">VWAP </th>
@@ -316,11 +315,6 @@
                             <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.PCR>1">BUY</td>
                             <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.PCR<1">SELL</td>
                             <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.PCR==1">READY
-                            </td>
-                            <td class="px-6 py-3 border-4 border-black bg-buy" *ngIf="record.OPCR>1">BUY</td>
-                            <td class="px-6 py-3 border-4 border-black bg-sell" *ngIf="record.OPCR<1">SELL</td>
-                            <td class="px-6 py-3 border-4 border-black bg-ready" *ngIf="record.OPCR==1">READY
-                            </td>
                             <td class="px-6 py-3 border-4 border-black bg-vwap">{{record.Original_Price}}
                             </td>
                             <td class="px-6 py-3 border-4 border-black"

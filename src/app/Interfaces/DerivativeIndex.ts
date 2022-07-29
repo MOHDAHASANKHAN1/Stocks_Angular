@@ -1,5 +1,6 @@
 export interface RecordedDerivativeIndex {
     _id: String,
+    Date: String,
     Time: String,
     PEtotVol: number,
     CEtotVol: number,
@@ -26,6 +27,7 @@ interface LiveDerivativeIndexArray {
 
 export interface LiveDerivativeIndex {
     _id: String,
+    Date: String,
     Time: String,
     PEtotOI: number,
     CEtotOI: number,
