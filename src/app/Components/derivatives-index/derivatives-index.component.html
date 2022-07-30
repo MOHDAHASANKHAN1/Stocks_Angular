@@ -1,14 +1,13 @@
 <div
     *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate">
-
-    <div class="mt-10 mx-2 flex justify-center">
+    <div class="flex justify-center mt-10 ">
+        <h1 class="py-3 pl-10 text-center bg-cyan-500 text-white text-lg font-bold">{{Title}} OPTION DATA</h1>
+        <ng-container *ngFor="let item of LiveDerivativeIndex">
+            <h1 class="pl-4 pr-10 py-3 text-center bg-cyan-500 text-white text-lg font-bold">{{item.Date}}</h1>
+        </ng-container>
+    </div>
+    <div class="mt-5 mx-2 flex justify-center">
         <div class="overflow-x-auto">
-            <div class="flex justify-center bg-cyan-500">
-                <h1 class="py-3 text-center text-white text-lg font-bold">{{Title}} DATA</h1>
-                <ng-container *ngFor="let item of LiveDerivativeIndex">
-                    <h1 class="px-4 py-3 text-center text-white text-lg font-bold">{{item.Date}}</h1>
-                </ng-container>
-            </div>
             <div class="mt-5 flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
                 <table>
                     <thead class="text-white text-lg font-bold text-center bg-yellow-400">

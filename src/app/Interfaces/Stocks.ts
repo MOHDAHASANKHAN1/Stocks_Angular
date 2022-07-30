@@ -12,7 +12,8 @@ export interface OHLType {
     isGainers: String,
     GainersType: String,
     isMostActive: String,
-    ActiveType: String
+    ActiveType: String,
+    Date: String
 }
 
 export interface OHL {
@@ -36,7 +37,8 @@ export interface MASType {
     GainersType: String,
     ActiveType: String,
     isFNO: String,
-    isNifty50: String
+    isNifty50: String,
+    Date: String
 }
 
 export interface MAS {
@@ -58,7 +60,8 @@ export interface TGNLType {
     isMostActive: String,
     ActiveType: String,
     isFNO: String,
-    isNifty50: String
+    isNifty50: String,
+    Date: String
 }
 
 export interface TGNL {

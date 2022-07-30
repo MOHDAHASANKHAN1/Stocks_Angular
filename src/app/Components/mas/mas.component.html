@@ -1,4 +1,9 @@
 <div *ngIf="MAS; else elseTemplate">
+    <div class="flex justify-center mt-10 ">
+        <h1 class="py-3 pl-10 text-center bg-cyan-500 text-white text-lg font-bold"> MAS DATA</h1>
+        <h1 class="pl-4 pr-10 py-3 text-center bg-cyan-500 text-white text-lg font-bold">
+            {{MAS.MostActivebyVolume[0].Date}}</h1>
+    </div>
     <div class="mt-10 mx-2 flex justify-center" *ngIf="MAS.MostActivebyVolume.length!==0; else elseTemplate1">
         <div class="overflow-x-auto">
             <div class="flex justify-between items-center space-x-5 lg:space-x-20 sm:space-x-10 xl:space-x-40">
