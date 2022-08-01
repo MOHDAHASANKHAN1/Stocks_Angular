@@ -1,7 +1,10 @@
 <div *ngIf="OHL; else elseTemplate">
-    <div class="flex justify-center mt-10 ">
-        <h1 class="py-3 pl-10 text-center bg-cyan-500 text-white text-lg font-bold"> OHL DATA</h1>
-        <h1 class="pl-4 pr-10 py-3 text-center bg-cyan-500 text-white text-lg font-bold">{{OHL.OHWN[0].Date}}</h1>
+    <div class="flex justify-center  mt-10 mx-2">
+        <h1
+            class=" py-3 sm:pr-4 pr-2 ssssm:pr-1 ssssm:pl-2 sm:pl-10 pl-5 text-center bg-cyan-500 text-white text-lg font-bold">
+            OHL DATA</h1>
+        <h1 class=" py-3 sm:pr-10 ssssm:pr-2 pr-5 text-center bg-cyan-500 text-white text-lg font-bold">
+            {{OHL.OHWN[0].Date}}</h1>
     </div>
     <div class="mt-10 mx-2 flex justify-center" *ngIf="OHL.OHWN.length!==0; else elseTemplate1">
         <div class="overflow-x-auto">

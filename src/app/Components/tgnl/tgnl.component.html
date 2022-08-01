@@ -1,7 +1,9 @@
 <div *ngIf="TGNL; else elseTemplate">
     <div class="flex justify-center mt-10 ">
-        <h1 class="py-3 pl-10 text-center bg-cyan-500 text-white text-lg font-bold"> TGNL DATA</h1>
-        <h1 class="pl-4 pr-10 py-3 text-center bg-cyan-500 text-white text-lg font-bold">
+        <h1
+            class="py-3 sm:pr-4 pr-2 ssssm:pr-1 ssssm:pl-2 sm:pl-10 pl-5  text-center bg-cyan-500 text-white text-lg font-bold">
+            TGNL DATA</h1>
+        <h1 class="py-3 sm:pr-10 ssssm:pr-2 pr-5 text-center bg-cyan-500 text-white text-lg font-bold">
             {{TGNL.TopGainers[0].Date}}</h1>
     </div>
     <div class="mt-10 mx-2 flex justify-center" *ngIf="TGNL.TopGainers.length!==0; else elseTemplate1">
@@ -40,8 +42,8 @@
                             <td class="px-6 py-3  border-4 border-black bg-sky-600">{{TopGainers.symbol}}</td>
                             <td class="px-6 py-3 bg-oi border-4 border-black">{{TopGainers.open}}</td>
                             <td class="px-6 py-3 bg-yellow-500 border-4 border-black">{{TopGainers.dayHigh}}</td>
-                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{TopGainers.lastPrice}}</td>
                             <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{TopGainers.dayLow}}</td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{TopGainers.lastPrice}}</td>
                             <td class="px-6 py-3 bg-volume border-4 border-black">{{TopGainers.totalTradedVolume}}</td>
                             <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{TopGainers.change}}</td>
                             <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{TopGainers.pChange}}</td>
@@ -114,8 +116,8 @@
                             <td class="px-6 py-3  border-4 border-black bg-sky-600">{{TopLoosers.symbol}}</td>
                             <td class="px-6 py-3 bg-oi border-4 border-black">{{TopLoosers.open}}</td>
                             <td class="px-6 py-3 bg-yellow-500 border-4 border-black">{{TopLoosers.dayHigh}}</td>
-                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{TopLoosers.lastPrice}}</td>
                             <td class="px-6 py-3 bg-purple-500 border-4 border-black">{{TopLoosers.dayLow}}</td>
+                            <td class="px-6 py-3 bg-lprc border-4 border-black">{{TopLoosers.lastPrice}}</td>
                             <td class="px-6 py-3 bg-volume border-4 border-black">{{TopLoosers.totalTradedVolume}}</td>
                             <td class="px-6 py-3 bg-lime-400 border-4 border-black">{{TopLoosers.change}}</td>
                             <td class="px-6 py-3 bg-lime-700 border-4 border-black">{{TopLoosers.pChange}}</td>

@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'body': 'rgb(29 78 216)',
         'buy': '#00e600',
         'sell': '#ff3300',
         'ready': '#ffff00',
@@ -21,7 +22,17 @@ module.exports = {
         'iv': '#00ffff',
         'vwap': '#006699',
         'large': '#660000',
-        'min': '#404040'
+        'min': '#404040',
+        'subscribe': '#ececec',
+        'features': '#011e3b',
+        'cardfeatures': '#022344',
+        'fimc': '#ff6600',
+        'hfimc': '#0d4782'
+      },
+      screens: {
+        'ssm': { 'min': '0px', 'max': '639px' },
+        'sssm': { 'min': '376px', 'max': '639px' },
+        'ssssm': { 'min': '0px', 'max': '375px' }
       }
     },
   },
