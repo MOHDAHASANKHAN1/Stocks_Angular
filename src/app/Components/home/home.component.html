@@ -1,476 +1,689 @@
 <div class="bg-white">
 
     <div class="py-2 bg-white sticky top-0 w-full">
-        <div class="ssm:block sm:hidden">
-            <div class="flex justify-center items-center pb-3">
-                <span class="text-lg font-bold"><i>Trade With Smart Way</i></span>
-            </div>
-        </div>
-        <div class="flex justify-between items-center">
-            <div class="ssm:ml-6 sm:ml-10 md:ml-12 lg:ml-20 xl:ml-28">
-                <img src="../../../assets/Logo.png" class="ssm:h-16 sm:h-16 md:h-20 lg:h-24 xl:h-28" alt="">
-            </div>
-            <div class="ssm:hidden">
-                <span class="sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold"><i>Trade With Smart
-                        Way</i></span>
-            </div>
-            <div class="">
-                <div class="flex items-center ssm:mr-6 sm:mr-10 md:mr-12 lg:mr-20 xl:mr-28">
-                    <img src="../../../assets/Phone.png" class="ssm:h-6 sm:h-6 xl:h-8 pr-2" alt="">
-                    <span
-                        class="sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold pb-1 text-slate-400">9918423716</span>
-                </div>
-            </div>
-        </div>
+       <div class="ssm:block sm:hidden">
+          <div class="flex justify-center items-center pb-3">
+             <span class="text-lg font-bold"><i>Trade With Smart Way</i></span>
+          </div>
+       </div>
+       <div class="flex justify-between items-center">
+          <div class="ssm:ml-6 sm:ml-10 md:ml-12 lg:ml-20 xl:ml-28">
+             <img src="../../../assets/Logo.png" class="ssm:h-16 sm:h-20" alt="">
+          </div>
+          <div class="ssm:hidden">
+             <span class="sm:text-2xl md:text-3xl lg:text-4xl font-bold"><i>Trade With Smart
+             Way</i></span>
+          </div>
+          <div class="">
+             <div class="flex items-center ssm:mr-6 sm:mr-10 md:mr-12 lg:mr-20 xl:mr-28">
+                <img src="../../../assets/Phone.png" class="ssm:h-6 sm:h-6 xl:h-8 pr-2" alt="">
+                <span
+                   class="sm:text-lg md:text-xl lg:text-2xl font-bold pb-1 text-slate-400">9918423716</span>
+             </div>
+          </div>
+       </div>
     </div>
 
-    <div>
-        <img class="w-full" src="../../../assets/Template.png" alt="">
+    <div class="relative">
+
+      <div *ngIf="posterT">
+         <img class="w-full" src="../../../assets/Template.png" alt="">
+      </div>
+
+       <div *ngIf="registerT">
+         <section>
+            <div class="sm:container px-6 h-full text-gray-800 py-3">
+               <div
+                  class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+                  >
+                  <div
+                     class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
+                     >
+                     <img
+                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                        class="w-full"
+                        alt="Sample image"
+                        />
+                  </div>
+                  <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+                     <form>
+                        <div class="flex flex-row items-center justify-center lg:justify-start">
+                           <p class="text-lg mb-0 mr-4">SignUp in with</p>
+                           <button
+                              type="button"
+                              data-mdb-ripple="true"
+                              data-mdb-ripple-color="light"
+                              class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                              >
+                             
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-4 h-4">
+                                 
+                                 <path
+                                    fill="currentColor"
+                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                                    />
+                              </svg>
+                           </button>
+                           <button
+                              type="button"
+                              data-mdb-ripple="true"
+                              data-mdb-ripple-color="light"
+                              class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                              >
+     
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-4 h-4">
+                               
+                                 <path
+                                    fill="currentColor"
+                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+                                    />
+                              </svg>
+                           </button>
+                           <button
+                              type="button"
+                              data-mdb-ripple="true"
+                              data-mdb-ripple-color="light"
+                              class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out mx-1"
+                              >
+     
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-4 h-4">
+                               
+                                 <path
+                                    fill="currentColor"
+                                    d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+                                    />
+                              </svg>
+                           </button>
+                        </div>
+                        <div
+                           class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5"
+                           >
+                           <p class="text-center font-semibold mx-4 mb-0">Or</p>
+                        </div>
+     
+                        <div class="mb-6">
+                           <input
+                              type="email"
+                              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                              id="exampleFormControlInput2"
+                              placeholder="Email address"
+                              required ngModel/>
+                        </div>
+     
+                        <div class="mb-6">
+                           <input
+                              type="password"
+                              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                              id="exampleFormControlInput2"
+                              placeholder="Password"
+                              required ngModel/>
+                        </div>
+              
+                        <div class="mb-6">
+                           <input
+                              type="password"
+                              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                              id="exampleFormControlInput2"
+                              placeholder="Confirm Password"
+                              required ngModel/>
+                        </div>
+                        <div class="flex justify-between items-center mb-6">
+                           <div class="form-group form-check">
+                              <input
+                                 type="checkbox"
+                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                 id="exampleCheck2"
+                                 />
+                              <label class="form-check-label inline-block text-gray-800" for="exampleCheck2"
+                                 >Remember me</label
+                                 >
+                           </div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                           <button
+                              type="submit"
+                              class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                              >
+                           SignUp
+                           </button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+       </div>
+  
+      <div *ngIf="loginT">
+         <section class="bg-white">
+            <div class="sm:container px-6 py-12 h-full">
+               <div class="flex justify-center items-center flex-wrap h-full g-6 text-gray-800">
+                  <div class="md:w-8/12 lg:w-6/12 mb-12 md:mb-0">
+                     <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+                        class="w-full" alt="Phone image" />
+                  </div>
+                  <div class="md:w-8/12 lg:w-5/12 lg:ml-20">
+                     <form >
+             
+                        <div class="mb-6">
+                           <input type="email"
+                              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                              placeholder="Email address" name="Email" required ngModel />
+                        </div>
+          
+                        <div class="mb-6">
+                           <input type="password"
+                              class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                              placeholder="Password" name="Password" required ngModel />
+                        </div>
+                        <div class="flex justify-between items-center mb-6">
+                           <div class="form-group form-check">
+                              <input type="checkbox"
+                                 class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"
+                                 id="exampleCheck3" checked />
+                              <label class="form-check-label inline-block text-gray-800" for="exampleCheck2">Remember
+                              me</label>
+                           </div>
+                           <a href="#!"
+                              class="text-blue-600 hover:text-blue-700 focus:text-blue-700 active:text-blue-800 duration-200 transition ease-in-out">Forgot
+                           password?</a>
+                        </div>
+     
+                        <button type="submit"
+                           class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-full"
+                           data-mdb-ripple="true" data-mdb-ripple-color="light">
+                        Login
+                        </button>
+                        <div
+                           class="flex items-center my-4 before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+                           <p class="text-center font-semibold mx-4 mb-0">OR</p>
+                        </div>
+                        <a class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center mb-3"
+                           style="background-color: #3b5998" href="#!" role="button" data-mdb-ripple="true"
+                           data-mdb-ripple-color="light">
+               
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="w-3.5 h-3.5 mr-2">
+                            
+                              <path fill="currentColor"
+                                 d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+                           </svg>
+                           Continue with Facebook
+                        </a>
+                        <a class="px-7 py-3 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full flex justify-center items-center"
+                           style="background-color: #55acee" href="#!" role="button" data-mdb-ripple="true"
+                           data-mdb-ripple-color="light">
+     
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-3.5 h-3.5 mr-2">
+             
+                              <path fill="currentColor"
+                                 d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
+                           </svg>
+                           Continue with Twitter
+                        </a>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </section>
+      </div>
+
+       <div class=" absolute top-2 right-6 flex">
+         <button (click)="register()" class="bg-oic fa-beat-fade hover:bg-buy text-white font-bold py-2 px-4 rounded-full  mr-3">
+            Register
+            </button>
+         <button (click)="login()" class="bg-oic fa-beat-fade hover:bg-buy text-white font-bold py-2 px-4 rounded-full">
+            Login
+           </button>
+       </div>
     </div>
+
+    
+    
 
     <div class="py-10 bg-subscribe flex justify-center px-2">
-        <div class="text-center">
-            <div class="">
-                <span class="sm:text-5xl text-4xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">BEST
-                    TIME TO
-                    SUBSCRIBE IS NOW</span>
-            </div>
-            <div class="pt-8">
-                <span class="text-2xl">
-                    Subscribe and enjoy advanced trading research software designed to help you with fast and <br> rich
-                    analysis
-                    of
-                    the
-                    market
-                    through unique data analysis and automated tool to time your <br> trade with greater efficiency.
-                </span>
-            </div>
-        </div>
+       <div class="text-center">
+          <div class="">
+             <span class="sm:text-5xl text-4xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">BEST
+             TIME TO
+             SUBSCRIBE IS NOW</span>
+          </div>
+          <div class="pt-8">
+             <span class="text-2xl">
+             Subscribe and enjoy advanced trading research software designed to help you with fast and <br> rich
+             analysis
+             of
+             the
+             market
+             through unique data analysis and automated tool to time your <br> trade with greater efficiency.
+             </span>
+          </div>
+       </div>
     </div>
 
     <div class="py-10 flex justify-center px-2">
-        <div class="text-center w-full sm:px-8 md:px-10 lg:px-25 xl:px-56 px-2">
-            <div class="">
-                <span class="sm:text-5xl text-4xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">
-                    TWS TRENDFINDER SUBSCRIPTION PLANS</span>
-            </div>
-            <div class="pt-10">
-                <table
-                    class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
-                    <thead class="text-white">
-                        <tr
-                            class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
-                        </tr>
-                        <tr
-                            class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
-                        </tr>
-                        <tr
-                            class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
-                            <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody class="flex-1 sm:flex-none">
-                        <tr class="flex flex-col flex-no wrap sm:table-row text-center mb-3 sm:mb-0 bg-teal-400">
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                TWSTF01
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                3
-                                Months</td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                100%
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                <button>
-                                    Subscribe
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="flex flex-col flex-no wrap sm:table-row text-center bg-teal-400 mb-3 sm:mb-0">
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                TWSTF02
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                6
-                                Months</td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                100%
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                <button>
-                                    Subscribe
-                                </button>
-                            </td>
-                        </tr>
-                        <tr class="flex flex-col flex-no wrap sm:table-row text-center bg-teal-400 mb-3 sm:mb-0">
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                TWSTF03
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                12
-                                Months</td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                0
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                100%
-                            </td>
-                            <td
-                                class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
-                                <button>
-                                    Subscribe
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+       <div class="text-center w-full sm:px-8 md:px-10 lg:px-25 xl:px-56 px-2">
+          <div class="">
+             <span class="sm:text-5xl text-4xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">
+             TWS TRENDFINDER SUBSCRIPTION PLANS</span>
+          </div>
+          <div class="pt-10">
+             <table
+                class="w-full flex flex-row flex-no-wrap sm:bg-white rounded-lg overflow-hidden sm:shadow-lg my-5">
+                <thead class="text-white">
+                   <tr
+                      class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
+                   </tr>
+                   <tr
+                      class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
+                   </tr>
+                   <tr
+                      class="bg-teal-400 flex flex-col flex-no wrap sm:table-row text-center  rounded-l-lg sm:rounded-none mb-3 sm:mb-0">
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Plans</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Duration</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Offer Price (In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Savings(In Rs.)</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-features">Discount</th>
+                      <th class="p-3 lg:text-3xl sm:text-2xl  text-xl bg-fimc">Action</th>
+                   </tr>
+                </thead>
+                <tbody class="flex-1 sm:flex-none">
+                   <tr class="flex flex-col flex-no wrap sm:table-row text-center mb-3 sm:mb-0 bg-teal-400">
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         TWSTF01
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         3
+                         Months
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         100%
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         <button>
+                         Subscribe
+                         </button>
+                      </td>
+                   </tr>
+                   <tr class="flex flex-col flex-no wrap sm:table-row text-center bg-teal-400 mb-3 sm:mb-0">
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         TWSTF02
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         6
+                         Months
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         100%
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         <button>
+                         Subscribe
+                         </button>
+                      </td>
+                   </tr>
+                   <tr class="flex flex-col flex-no wrap sm:table-row text-center bg-teal-400 mb-3 sm:mb-0">
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         TWSTF03
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         12
+                         Months
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         0
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         100%
+                      </td>
+                      <td
+                         class="border-grey-light border hover:bg-buy text-sell font-bold bg-purple-600 p-3 lg:text-2xl sm:text-xl  text-lg truncate">
+                         <button>
+                         Subscribe
+                         </button>
+                      </td>
+                   </tr>
+                </tbody>
+             </table>
+          </div>
+       </div>
     </div>
 
     <div class="pb-20 pt-10 bg-features text-white flex justify-center">
-        <div class="text-center">
-            <div class="">
-                <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KEY
-                    FEATURES OF TWS TRENDFINDER</span>
-            </div>
-            <div
-                class="grid grid-cols-2 md:grid-cols-3 sm:gap-8 md:gap-10 gap-4 pt-8 sm:px-8 md:px-10 lg:px-25 xl:px-56  ssssm:grid-cols-1 px-4">
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Automate-Your-Analysis.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Automate Your Analysis</span>
-                        </div>
-                        <div class="pt-2">
-                            <span class="text-xl ssm:text-lg">Customize and automate the manual technical
-                                analysis</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Fast-and-Timely-Information.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Fast and Timely Information</span>
-                        </div>
-                        <div class="pt-2 ssm:text-lg">
-                            <span class="text-xl">Get faster access to analyse data table with scanning</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Improve-Trade-Accuracy.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Improve Trade Accuracy</span>
-                        </div>
-                        <div class="pt-2 ssm:text-lg">
-                            <span class="text-xl">Improve accuracy by algorithms, trading signal</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Real-Time-Analysis-Update.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Real-Time Analysis Update</span>
-                        </div>
-                        <div class="pt-2">
-                            <span class="text-xl ssm:text-lg">Real-time market signals update</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Cover-Multiple-Index.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Cover Multiple Index</span>
-                        </div>
-                        <div class="pt-2 ssm:text-lg">
-                            <span class="text-xl">Covers Nifty, Bank Nifty, Options, Bullions, Metals, Energy and
-                                Agri</span>
-                        </div>
-                    </button>
-                </div>
-                <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
-                    <button>
-                        <div class="flex justify-center items-center">
-                            <div style="width: 9rem; height: 9rem">
-                                <img class="rounded-full group-hover:bg-hfimc bg-fimc"
-                                    src="../../../assets/Easy-Access-from-Multiple-Device.png" alt="">
-                            </div>
-                        </div>
-                        <div class="pt-2 font-bold">
-                            <span class="text-2xl ssm:text-xl">Easy Access from Multiple Device</span>
-                        </div>
-                        <div class="pt-2 ssm:text-lg">
-                            <span class="text-xl">Easy access through all the devices like, desktop/laptop, tablets and
-                                mobiles</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
-        </div>
+       <div class="text-center">
+          <div class="">
+             <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KEY
+             FEATURES OF TWS TRENDFINDER</span>
+          </div>
+          <div
+             class="grid grid-cols-2 md:grid-cols-3 sm:gap-8 md:gap-10 gap-4 pt-8 sm:px-8 md:px-10 lg:px-25 xl:px-56  ssssm:grid-cols-1 px-4">
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Automate-Your-Analysis.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Automate Your Analysis</span>
+                   </div>
+                   <div class="pt-2">
+                      <span class="text-xl ssm:text-lg">Customize and automate the manual technical
+                      analysis</span>
+                   </div>
+                </button>
+             </div>
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Fast-and-Timely-Information.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Fast and Timely Information</span>
+                   </div>
+                   <div class="pt-2 ssm:text-lg">
+                      <span class="text-xl">Get faster access to analyse data table with scanning</span>
+                   </div>
+                </button>
+             </div>
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Improve-Trade-Accuracy.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Improve Trade Accuracy</span>
+                   </div>
+                   <div class="pt-2 ssm:text-lg">
+                      <span class="text-xl">Improve accuracy by algorithms, trading signal</span>
+                   </div>
+                </button>
+             </div>
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Real-Time-Analysis-Update.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Real-Time Analysis Update</span>
+                   </div>
+                   <div class="pt-2">
+                      <span class="text-xl ssm:text-lg">Real-time market signals update</span>
+                   </div>
+                </button>
+             </div>
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Cover-Multiple-Index.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Cover Multiple Index</span>
+                   </div>
+                   <div class="pt-2 ssm:text-lg">
+                      <span class="text-xl">Covers Nifty, Bank Nifty, Options, Bullions, Metals, Energy and
+                      Agri</span>
+                   </div>
+                </button>
+             </div>
+             <div class="bg-cardfeatures py-4 sssm:px-2 px-8 group">
+                <button>
+                   <div class="flex justify-center items-center">
+                      <div style="width: 9rem; height: 9rem">
+                         <img class="rounded-full group-hover:bg-hfimc bg-fimc"
+                            src="../../../assets/Easy-Access-from-Multiple-Device.png" alt="">
+                      </div>
+                   </div>
+                   <div class="pt-2 font-bold">
+                      <span class="text-2xl ssm:text-xl">Easy Access from Multiple Device</span>
+                   </div>
+                   <div class="pt-2 ssm:text-lg">
+                      <span class="text-xl">Easy access through all the devices like, desktop/laptop, tablets and
+                      mobiles</span>
+                   </div>
+                </button>
+             </div>
+          </div>
+       </div>
     </div>
 
     <div class="py-10 flex justify-center">
-        <div class="text-center">
-            <div class="">
-                <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KEY
-                    BENEFITS OF TWS TRENDFINDER</span>
-            </div>
-            <div
-                class="grid grid-cols-2 md:grid-cols-3 sm:gap-8 md:gap-10 gap-4 pt-8 sm:px-8 md:px-10 lg:px-25 xl:px-56 ssssm:grid-cols-1 px-4">
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">1</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Helps in better decision making</span>
-                    </div>
+       <div class="text-center">
+          <div class="">
+             <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KEY
+             BENEFITS OF TWS TRENDFINDER</span>
+          </div>
+          <div
+             class="grid grid-cols-2 md:grid-cols-3 sm:gap-8 md:gap-10 gap-4 pt-8 sm:px-8 md:px-10 lg:px-25 xl:px-56 ssssm:grid-cols-1 px-4">
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">1</span>
                 </div>
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">2</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Visualize performance through data
-                            analysis</span>
-                    </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Helps in better decision making</span>
                 </div>
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">3</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Boost trading confidence</span>
-                    </div>
+             </div>
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">2</span>
                 </div>
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">4</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Identify trading ideas</span>
-                    </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Visualize performance through data
+                   analysis</span>
                 </div>
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">5</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Helps in minimizing trading risks</span>
-                    </div>
+             </div>
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">3</span>
                 </div>
-                <div class="flex items-center sssm:px-2 px-8">
-                    <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
-                        <span
-                            style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">6</span>
-                    </div>
-                    <div>
-                        <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Create alerts for the future</span>
-                    </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Boost trading confidence</span>
                 </div>
-            </div>
-        </div>
+             </div>
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">4</span>
+                </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Identify trading ideas</span>
+                </div>
+             </div>
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">5</span>
+                </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Helps in minimizing trading risks</span>
+                </div>
+             </div>
+             <div class="flex items-center sssm:px-2 px-8">
+                <div class="md:pr-4 sm:pr-3 sssm:pr-2 ssssm:pr-1">
+                   <span
+                      style="width: 30%;font-size: 7rem;font-weight: 600;color: #A5AFB9;font-family: 'Oswald', sans-serif;">6</span>
+                </div>
+                <div>
+                   <span class="lg:text-3xl sm:text-2xl ssm:text-xl">Create alerts for the future</span>
+                </div>
+             </div>
+          </div>
+       </div>
     </div>
 
     <div class="py-10 bg-subscribe flex justify-center px-2">
-        <div class="text-center sm:px-8 md:px-10 lg:px-25 xl:px-56">
-            <div class="">
-                <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KNOW
-                    MORE ABOUT TWS TRENDFINDER</span>
-            </div>
-            <div class="py-4 sssm:px-2 px-8">
-
-                <div class="pt-2 font-medium">
-                    <span class="text-3xl ssm:text-xl">TWS TRENDFINDER - FINEST MARKET ANALYSIS TOOL WITH BUY & SELL
-                        INDICATORS</span>
-                </div>
-                <br>
-                <div class="pt-2 ssm:text-xl">
-                    <span class="text-2xl">TWS TRENDFINDER, a unique market analysis tool which is designed by
-                        professional traders to help you with fast and rich
-                        analysis of the market through unique data analysis and automated tools to time your trade
-                        with greater efficiency.</span>
-                </div>
-            </div>
-            <div class="flex justify-between">
-                <div class="group">
-                    <a href="https://wa.me/+919918423716" target="_blank" class='nav-link'>
-                        <div class="my-3 py-3 px-2">
-                            <h4
-                                class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
-                                <b>Join Our Whatsapp Group</b>
-                            </h4>
-                            <img src="../../../assets/know1.jpg" class="img-fluid"
-                                alt="Technical Knowledge By Mohd Ahasan Khan" />
-                        </div>
-                    </a>
-                </div>
-
-                <div class="group">
-                    <a href="https://www.facebook.com/people/Mo-Ahsan-Khan/100043795833453/" target="_blank"
-                        class='nav-link'>
-                        <div class="my-3 py-3 px-2">
-                            <h4
-                                class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
-                                <b>Join Our Facebook Group</b>
-                            </h4>
-                            <img src="../../../assets/know2.jpg" class="img-fluid"
-                                alt="Technical Knowledge By Mohd Ahasan Khan" />
-                        </div>
-                    </a>
-                </div>
-                <div class="group">
-                    <a href="https://t.me/TechnicalKnowledgeByMoAhasanKhan" target="_blank" class='nav-link'>
-                        <div class="my-3 py-3 px-2">
-                            <h4
-                                class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
-                                <b>Join Our Telegram Group</b>
-                            </h4>
-                            <img src="../../../assets/know3.jpg" class="img-fluid"
-                                alt="Technical Knowledge By Mohd Ahasan Khan" />
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
+       <div class="text-center sm:px-8 md:px-10 lg:px-25 xl:px-56">
+          <div class="">
+             <span class="text-4xl sm:text-5xl" style="font-family: 'Oswald', sans-serif; font-weight: 400;">KNOW
+             MORE ABOUT TWS TRENDFINDER</span>
+          </div>
+          <div class="py-4 sssm:px-2 px-8">
+             <div class="pt-2 font-medium">
+                <span class="text-3xl ssm:text-xl">TWS TRENDFINDER - FINEST MARKET ANALYSIS TOOL WITH BUY & SELL
+                INDICATORS</span>
+             </div>
+             <br>
+             <div class="pt-2 ssm:text-xl">
+                <span class="text-2xl">TWS TRENDFINDER, a unique market analysis tool which is designed by
+                professional traders to help you with fast and rich
+                analysis of the market through unique data analysis and automated tools to time your trade
+                with greater efficiency.</span>
+             </div>
+          </div>
+          <div class="flex justify-between">
+             <div class="group">
+                <a href="https://wa.me/+919918423716" target="_blank" class='nav-link'>
+                   <div class="my-3 py-3 px-2">
+                      <h4
+                         class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
+                         <b>Join Our Whatsapp Group</b>
+                      </h4>
+                      <img src="../../../assets/know1.jpg" class="img-fluid"
+                         alt="Technical Knowledge By Mohd Ahasan Khan" />
+                   </div>
+                </a>
+             </div>
+             <div class="group">
+                <a href="https://www.facebook.com/people/Mo-Ahsan-Khan/100043795833453/" target="_blank"
+                   class='nav-link'>
+                   <div class="my-3 py-3 px-2">
+                      <h4
+                         class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
+                         <b>Join Our Facebook Group</b>
+                      </h4>
+                      <img src="../../../assets/know2.jpg" class="img-fluid"
+                         alt="Technical Knowledge By Mohd Ahasan Khan" />
+                   </div>
+                </a>
+             </div>
+             <div class="group">
+                <a href="https://t.me/TechnicalKnowledgeByMoAhasanKhan" target="_blank" class='nav-link'>
+                   <div class="my-3 py-3 px-2">
+                      <h4
+                         class='text-center lg:text-4xl sm:text-2xl sssm:text-xl text-lg  my-4 text-blue-600 group-hover:text-red-600'>
+                         <b>Join Our Telegram Group</b>
+                      </h4>
+                      <img src="../../../assets/know3.jpg" class="img-fluid"
+                         alt="Technical Knowledge By Mohd Ahasan Khan" />
+                   </div>
+                </a>
+             </div>
+          </div>
+       </div>
     </div>
-
+    
     <div class="pt-10 bg-features flex justify-center px-3">
-        <div>
-            <div class="sm:px-8 md:px-10 lg:px-25 xl:px-56 text-center">
-                <span class="text-xl font-medium text-white"><b>Disclaimer:</b> Investments in securities market are
-                    subject
-                    to
-                    market risks, read all the related documents carefully
-                    before investing. Trading and Investment involve risk. All such information is for assistance only
-                    and
-                    shall not be
-                    taken as the sole basis for making any Trading/investment decisions. The risk of loss in trading /
-                    investment in
-                    Securities markets including Equites, Derivatives, commodity and Currency can be substantial. Before
-                    Trading/ investing
-                    in the asset class consider your investment objectives, level of experience and risk appetite
-                    carefully</span>
-            </div>
-            <div class="flex justify-center pt-10">
-                <div class="sm:text-5xl text-3xl px-2 sm:px-4">
-                    <a href="https://www.facebook.com/people/Mo-Ahsan-Khan/100043795833453/" target="_blank">
-                        <i
-                            class="fa-brands rounded-full sm:px-6 sm:py-4 px-3 py-2  text-blue-600 bg-white fa-facebook-f"></i>
-                    </a>
-                </div>
-                <div class="sm:text-5xl text-3xl px-2 sm:px-4">
-                    <a href="https://www.instagram.com/mo_ahsan_khan" target="_blank">
-                        <i
-                            class="fa-brands rounded-full sm:px-5 sm:py-4 px-3 py-2 text-pink-600 bg-white fa-instagram"></i>
-                    </a>
-                </div>
-                <div class="sm:text-5xl text-3xl px-2 sm:px-4">
-                    <a href="https://twitter.com/MoAhsanKhan5" target="_blank">
-                        <i
-                            class="fa-brands rounded-full sm:px-4 sm:py-4 px-2 py-2 text-blue-600 bg-white fa-twitter"></i>
-                    </a>
-                </div>
-                <div class="sm:text-5xl text-3xl px-2 sm:px-4">
-                    <a href="https://www.linkedin.com/in/mo-ahasan-khan-0240b5205" target="_blank">
-                        <i
-                            class="fa-brands rounded-full sm:px-5 sm:py-4 px-3 py-2 text-blue-600 bg-white fa-linkedin-in"></i>
-                    </a>
-                </div>
-                <div class="sm:text-5xl text-3xl px-2 sm:px-4">
-                    <button>
-                        <i
-                            class="fa-brands rounded-full sm:px-4 sm:py-4 px-2 py-2 text-red-600 bg-white fa-youtube"></i>
-                    </button>
-                </div>
-            </div>
-            <hr class="border-cardfeatures mt-10" />
-            <p class="text-gray-500 py-5  text-center text-2xl font-bold p-0">© 2022 TWS. All Rights Reserved.
-            </p>
-        </div>
+       <div>
+          <div class="sm:px-8 md:px-10 lg:px-25 xl:px-56 text-center">
+             <span class="text-xl font-medium text-white"><b>Disclaimer:</b> Investments in securities market are
+             subject
+             to
+             market risks, read all the related documents carefully
+             before investing. Trading and Investment involve risk. All such information is for assistance only
+             and
+             shall not be
+             taken as the sole basis for making any Trading/investment decisions. The risk of loss in trading /
+             investment in
+             Securities markets including Equites, Derivatives, commodity and Currency can be substantial. Before
+             Trading/ investing
+             in the asset class consider your investment objectives, level of experience and risk appetite
+             carefully</span>
+          </div>
+          <div class="flex justify-center pt-10">
+             <div class="sm:text-5xl text-3xl px-2 sm:px-4">
+                <a href="https://www.facebook.com/people/Mo-Ahsan-Khan/100043795833453/" target="_blank">
+                <i
+                   class=" fa-beat-fade fa-brands rounded-full sm:px-6 sm:py-4 px-3 py-2  text-blue-600 bg-white fa-facebook-f"></i>
+                </a>
+             </div>
+             <div class="sm:text-5xl text-3xl px-2 sm:px-4">
+                <a href="https://www.instagram.com/mo_ahsan_khan" target="_blank">
+                <i
+                   class=" fa-beat-fade fa-brands rounded-full sm:px-5 sm:py-4 px-3 py-2 text-pink-600 bg-white fa-instagram"></i>
+                </a>
+             </div>
+             <div class="sm:text-5xl text-3xl px-2 sm:px-4">
+                <a href="https://twitter.com/MoAhsanKhan5" target="_blank">
+                <i
+                   class=" fa-beat-fade fa-brands rounded-full sm:px-4 sm:py-4 px-2 py-2 text-blue-600 bg-white fa-twitter"></i>
+                </a>
+             </div>
+             <div class="sm:text-5xl text-3xl px-2 sm:px-4">
+                <a href="https://www.linkedin.com/in/mo-ahasan-khan-0240b5205" target="_blank">
+                <i
+                   class=" fa-beat-fade fa-brands rounded-full sm:px-5 sm:py-4 px-3 py-2 text-blue-600 bg-white fa-linkedin-in"></i>
+                </a>
+             </div>
+             <div class="sm:text-5xl text-3xl px-2 sm:px-4">
+                <button>
+                <i
+                   class=" fa-beat-fade fa-brands rounded-full sm:px-4 sm:py-4 px-2 py-2 text-red-600 bg-white fa-youtube"></i>
+                </button>
+             </div>
+          </div>
+          <hr class="border-cardfeatures mt-10" />
+          <p class="text-gray-500 py-5  text-center text-2xl font-bold p-0">© 2022 TWS. All Rights Reserved.
+          </p>
+       </div>
     </div>
 
-</div>
+ </div>

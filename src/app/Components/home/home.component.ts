@@ -7,6 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  posterT:boolean = true;
+  loginT:boolean= false;
+  registerT:boolean = false;
+
+  register():void{
+    this.posterT=false;
+    this.loginT=false;
+    this.registerT=true;
+  }
+
+  login():void{
+    this.posterT=false;
+    this.registerT=false;
+    this.loginT=true;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
