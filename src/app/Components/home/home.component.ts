@@ -23,6 +23,12 @@ export class HomeComponent implements OnInit {
     this.loginT=true;
   }
 
+  home():void{
+    this.posterT=true;
+    this.registerT=false;
+    this.loginT=false;
+  }
+
   constructor() { }
 
   ngOnInit(): void {
