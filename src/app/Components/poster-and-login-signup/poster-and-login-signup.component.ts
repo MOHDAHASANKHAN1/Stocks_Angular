@@ -43,13 +43,13 @@ export class PosterAndLoginSignupComponent implements OnInit {
       .signupUser({ Name, Email, Password })
       .subscribe((data: CheckType) => {
         if (data.Success) {
-          window.location.reload();
           this.Success = data.Success;
           this.posterT = true;
           this.registerT = false;
           this.loginT = false;
           this.cookie.set('Token', data.Token);
           alert('You Have Successfully Signup');
+          window.location.reload();
         } else {
           this.posterT = false;
           this.registerT = false;
@@ -65,13 +65,13 @@ export class PosterAndLoginSignupComponent implements OnInit {
       .loginUser({ Email, Password })
       .subscribe((data: CheckType) => {
         if (data.Success) {
-          window.location.reload();
           this.Success = data.Success;
           this.posterT = true;
           this.registerT = false;
           this.loginT = false;
           this.cookie.set('Token', data.Token);
           alert('You Have Successfully Login');
+          window.location.reload();
         } else {
           alert('Invalid User Name Or Password........');
         }
