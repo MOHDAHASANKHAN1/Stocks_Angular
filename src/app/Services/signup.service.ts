@@ -8,9 +8,13 @@ import { SignupType } from '../Interfaces/Signup';
 })
 export class SignupService {
   signupUser(data: SignupType) {
-    return this.http.post<CheckType>('http://localhost:3001/Register', data, {
-      withCredentials: true,
-    });
+    return this.http.post<CheckType>(
+      'https://stocks-backend-nse.herokuapp.com/Register',
+      data,
+      {
+        withCredentials: true,
+      }
+    );
   }
 
   constructor(private http: HttpClient) {}

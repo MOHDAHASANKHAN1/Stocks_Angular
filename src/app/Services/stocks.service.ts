@@ -7,15 +7,15 @@ import { OHL, MAS, TGNL } from '../Interfaces/Stocks';
 })
 export class StocksService {
   getOHL() {
-    return this.http.get<OHL>(`http://localhost:3001/OHL`);
+    return this.http.get<OHL>(`https://stocks-backend-nse.herokuapp.com/OHL`);
   }
 
   getMAS() {
-    return this.http.get<MAS>(`http://localhost:3001/MAS`);
+    return this.http.get<MAS>(`https://stocks-backend-nse.herokuapp.com/MAS`);
   }
 
   getTGNL() {
-    return this.http.get<TGNL>(`http://localhost:3001/TGNL`);
+    return this.http.get<TGNL>(`https://stocks-backend-nse.herokuapp.com/TGNL`);
   }
 
   constructor(private http: HttpClient) {}

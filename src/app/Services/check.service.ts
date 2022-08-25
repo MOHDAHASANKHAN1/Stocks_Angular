@@ -7,9 +7,12 @@ import { CheckType } from '../Interfaces/Check';
 })
 export class CheckService {
   checkLogin() {
-    return this.http.get<CheckType>('http://localhost:3001/Check', {
-      withCredentials: true,
-    });
+    return this.http.get<CheckType>(
+      'https://stocks-backend-nse.herokuapp.com/Check',
+      {
+        withCredentials: true,
+      }
+    );
   }
   constructor(private http: HttpClient) {}
 }
