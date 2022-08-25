@@ -1,12 +1,16 @@
 window.onload = function () {
   load();
-  console.log("Reloaded...........");
 };
 
 function load() {
-  $(".Profile").click(function () {
-    $(".ProfileMenu").toggle();
-  });
+  $(".Profile").hover(
+    function () {
+      $(".ProfileMenu").removeClass("hidden");
+    },
+    function () {
+      $(".ProfileMenu").addClass("hidden");
+    }
+  );
   $(".ViewIndex").hover(
     function () {
       $(".ViewIndexMenu").removeClass("hidden");
@@ -39,5 +43,4 @@ new MutationObserver(() => {
 
 function onUrlChange() {
   load();
-  console.log("Changed...........");
 }

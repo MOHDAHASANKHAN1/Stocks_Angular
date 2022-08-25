@@ -7,6 +7,7 @@ import { Check_Route } from 'src/app/Redux/Action/Check_Route';
 import { Router } from '@angular/router';
 import { CheckService } from 'src/app/Services/check.service';
 import { CheckType } from 'src/app/Interfaces/Check';
+import { getRoute } from 'src/app/Redux/Reducer';
 
 @Component({
   selector: 'app-ohl',
@@ -36,23 +37,29 @@ export class OhlComponent implements OnInit {
     private store: Store<RootReducerState>,
     private service: CheckService
   ) {
+    this.store.dispatch(new Check_Route({ Route: 'OHL', Title: '' }));
     this.service.checkLogin().subscribe((data: CheckType) => {
       if (!data.Success) {
         this.router.navigate(['/']);
+        this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
       }
     });
   }
-
+  route: String = '';
   ngOnInit(): void {
-    this.store.dispatch(new Check_Route({ Route: 'OHL', Title: '' }));
+    this.store.select(getRoute).subscribe((data: String) => {
+      this.route = data;
+    });
     this.sservice.getOHL().subscribe((data: OHL) => {
-      this.OHL = data;
-      this.store.dispatch(
-        new Check_Route({
-          Route: 'OHL',
-          Title: `OHL STOCKS DATA ${this.OHL.Date}`,
-        })
-      );
+      if (this.route == 'MAS') {
+        this.OHL = data;
+        this.store.dispatch(
+          new Check_Route({
+            Route: 'OHL',
+            Title: `OHL STOCKS DATA ${this.OHL.Date}`,
+          })
+        );
+      }
     });
   }
 

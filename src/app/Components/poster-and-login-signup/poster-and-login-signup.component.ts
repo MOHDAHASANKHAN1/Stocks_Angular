@@ -43,7 +43,7 @@ export class PosterAndLoginSignupComponent implements OnInit {
       .signupUser({ Name, Email, Password })
       .subscribe((data: CheckType) => {
         if (data.Success) {
-          this.router.navigate(['/Home']);
+          window.location.reload();
           this.Success = data.Success;
           this.posterT = true;
           this.registerT = false;
@@ -64,7 +64,7 @@ export class PosterAndLoginSignupComponent implements OnInit {
       .loginUser({ Email, Password })
       .subscribe((data: CheckType) => {
         if (data.Success) {
-          this.router.navigate(['/Home']);
+          window.location.reload();
           this.Success = data.Success;
           this.posterT = true;
           this.registerT = false;

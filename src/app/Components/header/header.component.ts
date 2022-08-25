@@ -4,6 +4,7 @@ import { getRoute, getTitle, RootReducerState } from 'src/app/Redux/Reducer';
 import { CheckService } from 'src/app/Services/check.service';
 import { CheckType } from 'src/app/Interfaces/Check';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-header',
@@ -16,31 +17,32 @@ export class HeaderComponent implements OnInit {
   Title!: String;
 
   logout(): void {
-    alert('hello');
+    this.cookie.delete('Token');
+    window.location.reload();
   }
 
   constructor(
     private store: Store<RootReducerState>,
     private service: CheckService,
-    private router: Router
+    private router: Router,
+    private cookie: CookieService
   ) {
     this.router.events.subscribe((ev) => {
       this.service.checkLogin().subscribe((data: CheckType) => {
         if (data.Success) {
           this.Success = data.Success;
+          if (this.Success) {
+            this.store.select(getRoute).subscribe((data: String) => {
+              this.Route = data;
+            });
+            this.store.select(getTitle).subscribe((data: String) => {
+              this.Title = data;
+            });
+          }
         }
       });
     });
   }
 
-  ngOnInit(): void {
-    if (this.Success) {
-      this.store.select(getRoute).subscribe((data: String) => {
-        this.Route = data;
-      });
-      this.store.select(getTitle).subscribe((data: String) => {
-        this.Title = data;
-      });
-    }
-  }
+  ngOnInit(): void {}
 }

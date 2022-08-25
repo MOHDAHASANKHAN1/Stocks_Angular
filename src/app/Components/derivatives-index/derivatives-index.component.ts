@@ -101,6 +101,7 @@ export class DerivativesIndexComponent implements OnInit {
     this.service.checkLogin().subscribe((data: CheckType) => {
       if (!data.Success) {
         this.router.navigate(['/']);
+        this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
       }
     });
   }

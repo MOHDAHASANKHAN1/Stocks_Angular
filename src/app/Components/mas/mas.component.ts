@@ -7,6 +7,7 @@ import { RootReducerState } from 'src/app/Redux/Reducer';
 import { CheckService } from 'src/app/Services/check.service';
 import { Router } from '@angular/router';
 import { CheckType } from 'src/app/Interfaces/Check';
+import { getRoute } from 'src/app/Redux/Reducer';
 
 @Component({
   selector: 'app-mas',
@@ -36,22 +37,29 @@ export class MasComponent implements OnInit {
     private service: CheckService,
     private router: Router
   ) {
+    this.store.dispatch(new Check_Route({ Route: 'MAS', Title: '' }));
     this.service.checkLogin().subscribe((data: CheckType) => {
       if (!data.Success) {
         this.router.navigate(['/']);
+        this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
       }
     });
   }
+  route: String = '';
   ngOnInit(): void {
-    this.store.dispatch(new Check_Route({ Route: 'MAS', Title: '' }));
+    this.store.select(getRoute).subscribe((data: String) => {
+      this.route = data;
+    });
     this.sservice.getMAS().subscribe((data: MAS) => {
-      this.MAS = data;
-      this.store.dispatch(
-        new Check_Route({
-          Route: 'MAS',
-          Title: `MAS STOCKS DATA ${this.MAS.Date}`,
-        })
-      );
+      if (this.route == 'MAS') {
+        this.MAS = data;
+        this.store.dispatch(
+          new Check_Route({
+            Route: 'MAS',
+            Title: `MAS STOCKS DATA ${this.MAS.Date}`,
+          })
+        );
+      }
     });
   }
 
