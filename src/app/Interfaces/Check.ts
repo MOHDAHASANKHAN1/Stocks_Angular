@@ -1,3 +1,4 @@
-export interface CheckType{
-    Success:boolean
+export interface CheckType {
+  Success: boolean;
+  Token: string;
 }

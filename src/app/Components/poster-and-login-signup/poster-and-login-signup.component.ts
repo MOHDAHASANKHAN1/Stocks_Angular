@@ -5,7 +5,7 @@ import { LoginService } from 'src/app/Services/login.service';
 import { SignupService } from 'src/app/Services/signup.service';
 import { CheckService } from 'src/app/Services/check.service';
 import { CheckType } from 'src/app/Interfaces/Check';
-import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-poster-and-login-signup',
@@ -48,6 +48,7 @@ export class PosterAndLoginSignupComponent implements OnInit {
           this.posterT = true;
           this.registerT = false;
           this.loginT = false;
+          this.cookie.set('Token', data.Token);
           alert('You Have Successfully Signup');
         } else {
           this.posterT = false;
@@ -69,6 +70,7 @@ export class PosterAndLoginSignupComponent implements OnInit {
           this.posterT = true;
           this.registerT = false;
           this.loginT = false;
+          this.cookie.set('Token', data.Token);
           alert('You Have Successfully Login');
         } else {
           alert('Invalid User Name Or Password........');
@@ -80,7 +82,7 @@ export class PosterAndLoginSignupComponent implements OnInit {
     private serviceSignup: SignupService,
     private serviceLogin: LoginService,
     private service: CheckService,
-    private router: Router
+    private cookie: CookieService
   ) {
     this.service.checkLogin().subscribe((data: CheckType) => {
       if (data.Success) {
