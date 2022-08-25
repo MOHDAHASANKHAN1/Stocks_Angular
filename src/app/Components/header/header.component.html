@@ -1,0 +1,521 @@
+<div *ngIf="Success; else elseTemplate">
+  <div *ngIf="Route != ''; else elseTemplate">
+    <div class="pt-1 bg-blue-800 sticky top-0 w-full">
+      <div class="flex justify-between items-center">
+        <div class="">
+          <div class="ssm:ml-6 sm:ml-10 md:ml-12 lg:ml-20 xl:ml-28">
+            <img
+              src="../../../assets/Logo.png"
+              class="ssm:h-16 sm:h-14"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="">
+          <div class="ssm:hidden sm:hidden lg:block flex ml-48 mr-3">
+            <div class="flex justify-center">
+              <h1
+                class="py-3 sm:pr-10 ssssm:pr-2 pr-5 ssssm:pl-2 sm:pl-10 pl-5 text-center bg-cyan-500 text-white text-sm font-bold"
+              >
+                {{ Title }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-center sd:hidden">
+          <div class="items-center mr-6 relative">
+            <div class="ViewIndex">
+              <button
+                class="flex font-bold text-xl px-4 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+              >
+                <p class="mr-3">Index</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md left-0 ViewIndexMenu hidden bg-gray-500"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="/Derivative-index/nifty"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Nifty</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Derivative-index/banknifty"
+                      class="block py-2 text-sm text-white"
+                    >
+                      <i class="fa-solid fa-eye pr-2"></i>BankNifty</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="items-center mr-6 relative">
+            <div class="ViewStocks">
+              <button
+                class="flex font-bold text-xl px-5 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+              >
+                <p class="mr-3">Stocks</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md left-0 ViewStocksMenu hidden w-48 bg-gray-500"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/MAS"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Most Active</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/OHL"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Open High Low
+                      Equal</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/TGNL"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Top Gainer And
+                      Looser</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="items-center mr-6 relative">
+            <div class="Profile">
+              <button>
+                <i
+                  class="fa-solid fa-user font-bold text-xl p-2 rounded-full border-cyan-500 border-2"
+                ></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md right-0 ProfileMenu hidden bg-gray-500 w-48"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="/Profile"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Your Profile</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <button (click)="logout()" class="w-full text-start">
+                      <a class="block py-2 text-sm text-white"
+                        ><i class="fa-solid fa-eye pr-2"></i>Sign Out</a
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sd:block hidden mr-6 relative">
+          <div class="View">
+            <button>
+              <i
+                class="fa-solid fa-bars font-bold text-xl p-2 rounded-md border-cyan-500 border-2"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="hidden ViewMenu absolute ssssm:-right-6 right-0 mt-1 bg-white py-4 px-2 rounded-md"
+          >
+            <div class="flex justify-center items-center">
+              <div class="items-center mr-6 relative">
+                <div class="ViewIndex">
+                  <button
+                    class="flex font-bold text-xl px-4 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+                  >
+                    <p class="mr-3">Index</p>
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md left-0 ViewIndexMenu hidden bg-gray-500"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="/Derivative-index/nifty"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Nifty</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Derivative-index/banknifty"
+                          class="block py-2 text-sm text-white"
+                        >
+                          <i class="fa-solid fa-eye pr-2"></i>BankNifty</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="items-center mr-6 relative">
+                <div class="ViewStocks">
+                  <button
+                    class="flex font-bold text-xl px-5 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+                  >
+                    <p class="mr-3">Stocks</p>
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md left-0 ViewStocksMenu hidden w-48 bg-gray-500"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/MAS"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Most Active</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/OHL"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Open High Low
+                          Equal</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/TGNL"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Top Gainer And
+                          Looser</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="items-center mr-6 relative">
+                <div class="Profile">
+                  <button>
+                    <i
+                      class="fa-solid fa-user font-bold text-xl p-2 rounded-full border-cyan-500 border-2"
+                    ></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md right-0 ProfileMenu hidden bg-gray-500 w-48"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="/Profile"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Your Profile</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <button (click)="logout()" class="w-full text-start">
+                          <a class="block py-2 text-sm text-white"
+                            ><i class="fa-solid fa-eye pr-2"></i>Sign Out</a
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ssm:block lg:hidden pb-2 mt-5">
+        <div class="flex justify-center">
+          <h1
+            class="py-3 sm:pr-10 ssssm:pr-2 pr-5 ssssm:pl-2 sm:pl-10 pl-5 text-center bg-cyan-500 text-white text-sm font-bold"
+          >
+            {{ Title }}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseTemplate>
+    <div class="py-2 bg-white sticky top-0 w-full">
+      <div class="ssm:block sm:hidden">
+        <div class="flex justify-center items-center pb-3">
+          <span class="text-lg font-bold"><i>Trade With Smart Way</i></span>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <div class="ssm:ml-6 sm:ml-10 md:ml-12 lg:ml-20 xl:ml-28">
+          <img src="../../../assets/Logo.png" class="ssm:h-16 sm:h-20" alt="" />
+        </div>
+        <div class="ssm:hidden">
+          <span class="sm:text-2xl md:text-3xl lg:text-4xl font-bold"
+            ><i>Trade With Smart Way</i></span
+          >
+        </div>
+        <div class="flex justify-center sd:hidden">
+          <div class="items-center mr-6 relative">
+            <div class="ViewIndex">
+              <button
+                class="flex font-bold text-xl px-4 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+              >
+                <p class="mr-3">Index</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md left-0 ViewIndexMenu hidden bg-gray-500"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="/Derivative-index/nifty"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Nifty</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Derivative-index/banknifty"
+                      class="block py-2 text-sm text-white"
+                    >
+                      <i class="fa-solid fa-eye pr-2"></i>BankNifty</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="items-center mr-6 relative">
+            <div class="ViewStocks">
+              <button
+                class="flex font-bold text-xl px-5 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+              >
+                <p class="mr-3">Stocks</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md left-0 ViewStocksMenu hidden w-48 bg-gray-500"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/MAS"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Most Active</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/OHL"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Open High Low
+                      Equal</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="Stocks/TGNL"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Top Gainer And
+                      Looser</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="items-center mr-6 relative">
+            <div class="Profile">
+              <button>
+                <i
+                  class="fa-solid fa-user font-bold text-xl p-2 rounded-full border-cyan-500 border-2"
+                ></i>
+              </button>
+              <div
+                class="absolute top-10 rounded-md right-0 ProfileMenu hidden bg-gray-500 w-48"
+              >
+                <div class="">
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <a
+                      routerLink="/Profile"
+                      class="block py-2 text-sm text-white"
+                      ><i class="fa-solid fa-eye pr-2"></i>Your Profile</a
+                    >
+                  </div>
+                  <div class="rounded-md px-3 hover:bg-slate-700">
+                    <button (click)="logout()" class="w-full text-start">
+                      <a class="block py-2 text-sm text-white"
+                        ><i class="fa-solid fa-eye pr-2"></i>Sign Out</a
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sd:block hidden mr-6 relative">
+          <div class="View">
+            <button>
+              <i
+                class="fa-solid fa-bars font-bold text-xl p-2 rounded-md border-cyan-500 border-2"
+              ></i>
+            </button>
+          </div>
+          <div
+            class="hidden ViewMenu absolute ssssm:-right-6 right-0 mt-1 bg-white py-4 px-2 rounded-md"
+          >
+            <div class="flex justify-center items-center">
+              <div class="items-center mr-6 relative">
+                <div class="ViewIndex">
+                  <button
+                    class="flex font-bold text-xl px-4 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+                  >
+                    <p class="mr-3">Index</p>
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md left-0 ViewIndexMenu hidden bg-gray-500"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="/Derivative-index/nifty"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Nifty</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Derivative-index/banknifty"
+                          class="block py-2 text-sm text-white"
+                        >
+                          <i class="fa-solid fa-eye pr-2"></i>BankNifty</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="items-center mr-6 relative">
+                <div class="ViewStocks">
+                  <button
+                    class="flex font-bold text-xl px-5 py-1 rounded-full border-cyan-500 border-2 items-center justify-center"
+                  >
+                    <p class="mr-3">Stocks</p>
+                    <i class="fa-solid fa-angle-down"></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md left-0 ViewStocksMenu hidden w-48 bg-gray-500"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/MAS"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Most Active</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/OHL"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Open High Low
+                          Equal</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="Stocks/TGNL"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Top Gainer And
+                          Looser</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="items-center mr-6 relative">
+                <div class="Profile">
+                  <button>
+                    <i
+                      class="fa-solid fa-user font-bold text-xl p-2 rounded-full border-cyan-500 border-2"
+                    ></i>
+                  </button>
+                  <div
+                    class="absolute top-10 rounded-md right-0 ProfileMenu hidden bg-gray-500 w-48"
+                  >
+                    <div class="">
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <a
+                          routerLink="/Profile"
+                          class="block py-2 text-sm text-white"
+                          ><i class="fa-solid fa-eye pr-2"></i>Your Profile</a
+                        >
+                      </div>
+                      <div class="rounded-md px-3 hover:bg-slate-700">
+                        <button (click)="logout()" class="w-full text-start">
+                          <a class="block py-2 text-sm text-white"
+                            ><i class="fa-solid fa-eye pr-2"></i>Sign Out</a
+                          >
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #elseTemplate>
+  <div class="py-2 bg-white sticky top-0 w-full">
+    <div class="ssm:block sm:hidden">
+      <div class="flex justify-center items-center pb-3">
+        <span class="text-lg font-bold"><i>Trade With Smart Way</i></span>
+      </div>
+    </div>
+    <div class="flex justify-between items-center">
+      <div class="ssm:ml-6 sm:ml-10 md:ml-12 lg:ml-20 xl:ml-28">
+        <img src="../../../assets/Logo.png" class="ssm:h-16 sm:h-20" alt="" />
+      </div>
+      <div class="ssm:hidden">
+        <span class="sm:text-2xl md:text-3xl lg:text-4xl font-bold"
+          ><i>Trade With Smart Way</i></span
+        >
+      </div>
+      <div class="">
+        <div
+          class="flex items-center ssm:mr-6 sm:mr-10 md:mr-12 lg:mr-20 xl:mr-28 fa-shake"
+        >
+          <img
+            src="../../../assets/Phone.png"
+            class="ssm:h-6 sm:h-6 xl:h-8 pr-2"
+            alt=""
+          />
+          <span
+            class="sm:text-lg md:text-xl lg:text-2xl font-bold pb-1 text-slate-400"
+            >9918423716</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

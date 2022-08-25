@@ -11,6 +11,13 @@ import { TgnlComponent } from './Components/tgnl/tgnl.component';
 import { StocksComponent } from './Components/stocks/stocks.component';
 import { StocksHomeComponent } from './Components/stocks-home/stocks-home.component';
 import { SearchStockComponent } from './Components/search-stock/search-stock.component';
+import { HeaderComponent } from './Components/header/header.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { PosterAndLoginSignupComponent } from './Components/poster-and-login-signup/poster-and-login-signup.component';
+import { CardsComponent } from './Components/cards/cards.component';
+import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { rootReducer } from './Redux/Reducer';
 
 @NgModule({
   declarations: [
@@ -22,12 +29,18 @@ import { SearchStockComponent } from './Components/search-stock/search-stock.com
     TgnlComponent,
     StocksComponent,
     StocksHomeComponent,
-    SearchStockComponent
+    SearchStockComponent,
+    HeaderComponent,
+    FooterComponent,
+    PosterAndLoginSignupComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    StoreModule.forRoot(rootReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

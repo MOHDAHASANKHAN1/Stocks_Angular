@@ -3,21 +3,20 @@ import { HttpClient } from '@angular/common/http';
 import { OHL, MAS, TGNL } from '../Interfaces/Stocks';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StocksService {
-
   getOHL() {
-    return this.http.get<OHL>(`https://stocks-backend-nse.herokuapp.com/OHL`);
+    return this.http.get<OHL>(`http://localhost:3001/OHL`);
   }
 
   getMAS() {
-    return this.http.get<MAS>(`https://stocks-backend-nse.herokuapp.com/MAS`);
+    return this.http.get<MAS>(`http://localhost:3001/MAS`);
   }
 
   getTGNL() {
-    return this.http.get<TGNL>(`https://stocks-backend-nse.herokuapp.com/TGNL`);
+    return this.http.get<TGNL>(`http://localhost:3001/TGNL`);
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 }

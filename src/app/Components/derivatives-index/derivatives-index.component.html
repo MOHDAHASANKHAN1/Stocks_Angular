@@ -1,7 +1,12 @@
 <div
-    *ngIf="LiveDerivativeIndex.length!==0 && RecordedDerivativeIndex5m.length!==0 && RecordedDerivativeIndex15m.length!==0; else elseTemplate">
-    
-    <div class="flex justify-center mt-3 ">
+  *ngIf="
+    LiveDerivativeIndex.length !== 0 &&
+      RecordedDerivativeIndex5m.length !== 0 &&
+      RecordedDerivativeIndex15m.length !== 0;
+    else elseTemplate
+  "
+>
+  <!-- <div class="flex justify-center mt-3 ">
         <h1
             class="py-3 sm:pr-4 pr-2 ssssm:pr-1 ssssm:pl-2 sm:pl-10 pl-5  text-center bg-cyan-500 text-white text-sm font-bold">
             {{Title}} OPTION DATA</h1>
@@ -10,342 +15,786 @@
                 {{item.Date}}
             </h1>
         </ng-container>
-    </div>
+    </div> -->
 
-    <div class="mt-0 mb-10 mx-2 flex justify-center">
-        <div class="overflow-x-auto">
-            <div class="mt-3 flex justify-between items-center space-x-5 lg:space-x-20 xl:space-x-28 sm:space-x-10">
-                <table>
-                    <thead class="text-white text-sm font-bold text-center bg-yellow-400">
-                        <tr>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500" colspan="6">{{Title}} CALL OPTION
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">SRIKE</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">PRICE</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">OPEN INT</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">CHANGE IN OI
-                            </th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">Volume</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">IV</th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-xs text-center">
-                        <ng-container *ngFor="let item of LiveDerivativeIndex">
-                            <tr *ngFor="let record of item.Cdata">
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-sky-600"
-                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Cdata, record.strikePrice)}">
-                                    {{record.strikePrice}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-lprc">{{record.lastPrice}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-oic"
-                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Cdata, record.openInterest),'bg-stone-800 text-gray-50': Checkmin(item.Cdata, record.openInterest)}">
-                                    {{record.openInterest}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800"
-                                    [ngClass]="{'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1,'bg-stone-700 text-gray-50': ChecklargestChngoin(item.Cdata, record.changeinOpenInterest),'bg-slate-700 text-white': ChecklargestChngoip(item.Cdata, record.changeinOpenInterest)}">
-                                    {{record.changeinOpenInterest}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-oiv"
-                                    [ngClass]="{'bg-slate-600 text-white': Checklargestvol(item.Cdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Cdata, record.totalTradedVolume)}">
-                                    {{record.totalTradedVolume}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-iv"
-                                    [ngClass]="{'bg-slate-500 text-white': Checklargestiv(item.Cdata, record.impliedVolatility), 'bg-stone-500 text-gray-50': Checkminiv(item.Cdata, record.impliedVolatility)}">
-                                    {{record.impliedVolatility}}</td>
-                            </tr>
-                            <tr class="border-2 border-red-700 font-bold text-teal-700 bg-yellow-400 text-sm">
-                                <td>Total</td>
-                                <td>=</td>
-                                <td>{{item.CEtotOI}}</td>
-                                <td>{{item.CEtotChangeInOI}}</td>
-                                <td>{{item.CEtotVol}}</td>
-                                <td></td>
-                            </tr>
-                        </ng-container>
-                    </tbody>
-                </table>
-                <table>
-                    <thead class="text-white text-sm font-bold text-center bg-orange-400">
-                        <tr>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500" colspan="6">{{Title}} PUT
-                                OPTION</th>
-                        </tr>
-                        <tr>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">SRIKE</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">PRICE</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">OPEN INT</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">CHANGE IN OI
-                            </th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">Volume</th>
-                            <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">IV</th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-xs text-center">
-                        <ng-container *ngFor="let item of LiveDerivativeIndex">
-                            <tr *ngFor="let record of item.Pdata">
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-sky-600"
-                                    [ngClass]="{'bg-fuchsia-700': Checkcentre(item.Cdata, record.strikePrice)}">
-                                    {{record.strikePrice}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-lprc">{{record.lastPrice}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-oic"
-                                    [ngClass]="{'bg-slate-800 text-white': Checklargest(item.Pdata, record.openInterest),'bg-stone-800 text-gray-50': Checkmin(item.Pdata, record.openInterest)}">
-                                    {{record.openInterest}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800"
-                                    [ngClass]="{'bg-stone-700 text-gray-50': ChecklargestChngoin(item.Pdata, record.changeinOpenInterest),'bg-slate-700 text-white': ChecklargestChngoip(item.Pdata, record.changeinOpenInterest),'bg-pcrb': Checknp(record.changeinOpenInterest)==1,'bg-pcrs': Checknp(record.changeinOpenInterest)==-1}">
-                                    {{record.changeinOpenInterest}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-oiv"
-                                    [ngClass]="{'bg-slate-600 text-white': Checklargestvol(item.Pdata, record.totalTradedVolume),'bg-stone-600 text-gray-50': Checkminvol(item.Pdata, record.totalTradedVolume)}">
-                                    {{record.totalTradedVolume}}</td>
-                                <td class="border-2 px-6 py-1 border-gray-800 bg-iv"
-                                    [ngClass]="{'bg-slate-500 text-white': Checklargestiv(item.Pdata, record.impliedVolatility), 'bg-stone-500 text-gray-50': Checkminiv(item.Pdata, record.impliedVolatility)}">
-                                    {{record.impliedVolatility}}</td>
-                            </tr>
-                            <tr class="border-2  border-red-700 font-bold text-teal-700 bg-yellow-400 text-sm">
-                                <td>Total</td>
-                                <td>=</td>
-                                <td>{{item.PEtotOI}}</td>
-                                <td>{{item.PEtotChangeInOI}}</td>
-                                <td>{{item.PEtotVol}}</td>
-                                <td></td>
-                            </tr>
-                        </ng-container>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <div class="flex justify-center mx-2 my-10">
-        <div class="overflow-x-auto">
-            <ng-container *ngIf="Show; else elseTemplate">
-                <table>
-                    <thead class="font-bold text-base text-white text-center">
-                        <tr>
-                            <th colspan="15" class="px-5 py-3 border-4 text-iv bg-pink-400 border-gray-800">
-                                <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="8" class="px-5 py-3 border-4 border-gray-800 bg-pink-400">
-                                <input (click)="SelectTimeframe(5)" id="default-radio-1" type="radio" value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-1"
-                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">5
-                                    Minute
-                                    Time Frame</label>
-                            </th>
-                            <th colspan="7" class="px-5 py-3 border-4 border-gray-800 bg-pink-400">
-                                <input (click)="SelectTimeframe(15)" checked id="default-radio-2" type="radio" value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-2"
-                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">15
-                                    Minute
-                                    Time Frame</label>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="15" class="px-5 py-3 border-4 text-buy bg-cyan-700 border-gray-800">
-                                <h1 class="text-lg text-center font-bold">INTRADAY DATA ( Use This Indicator Only After
-                                    10:30AM )</h1>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                Time</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">
-                                Call</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">Put
-                            </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">
-                                Difference</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">PCR
-                            </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                Option Signal</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="3">
-                                Prices</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                VWAP Signal</th>
-                        </tr>
-                        <tr>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">VOL</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">Index </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">Future </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">VWAP </th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-sm text-center">
-                        <tr *ngFor="let record of RecordedDerivativeIndex15m">
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sky-600">{{record.Time}}
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
-                                {{record.CEtotChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
-                                {{record.CEtotVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
-                                {{record.PEtotChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
-                                {{record.PEtotVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': Checknp(record.DiffChangeInOI)==1,'bg-pcrs': Checknp(record.DiffChangeInOI)==-1}">
-                                {{record.DiffChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': Checknp(record.DiffVol)==1,'bg-pcrs': Checknp(record.DiffVol)==-1}">
-                                {{record.DiffVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrbo': record.PCR>1, 'bg-pcrso':record.PCR<1,'bg-pcrr':record.PCR==1}">
-                                {{record.PCR}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrbo': record.OPCR>1, 'bg-pcrso':record.OPCR<1,'bg-pcrr':record.OPCR==1}">
-                                {{record.OPCR}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-buy" *ngIf="record.PCR>1">BUY</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sell" *ngIf="record.PCR<1">SELL</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-ready" *ngIf="record.PCR==1">READY
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">{{record.Original_Price}}
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': record.Future_Price>record.Vwap_Price, 'bg-pcrs':record.Future_Price<record.Vwap_Price,'bg-pcrr':record.Future_Price==record.Vwap_Price}">
-                                {{record.Future_Price}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">{{record.Vwap_Price}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-buy"
-                                *ngIf="record.Future_Price>record.Vwap_Price">BUY
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sell"
-                                *ngIf="record.Future_Price<record.Vwap_Price">
-                                SELL</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-ready"
-                                *ngIf="record.Future_Price==record.Vwap_Price">
-                                READY</td>
-                        </tr>
-                    </tbody>
-                </table>
+  <div class="mt-0 mb-10 mx-2 flex justify-center">
+    <div class="overflow-x-auto">
+      <div
+        class="mt-1 flex justify-between items-center space-x-5 lg:space-x-20 xl:space-x-28 sm:space-x-10"
+      >
+        <table>
+          <thead class="text-white text-sm font-bold text-center bg-yellow-400">
+            <tr>
+              <th
+                class="px-6 py-1 border-2 border-gray-800 bg-cyan-500"
+                colspan="6"
+              >
+                {{ Title }} CALL OPTION
+              </th>
+            </tr>
+            <tr>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                SRIKE
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                PRICE
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                OPEN INT
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                CHANGE IN OI
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                Volume
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">IV</th>
+            </tr>
+          </thead>
+          <tbody class="font-bold text-xs text-center">
+            <ng-container *ngFor="let item of LiveDerivativeIndex">
+              <tr *ngFor="let record of item.Cdata">
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-sky-600"
+                  [ngClass]="{
+                    'bg-fuchsia-700': Checkcentre(
+                      item.Cdata,
+                      record.strikePrice
+                    )
+                  }"
+                >
+                  {{ record.strikePrice }}
+                </td>
+                <td class="border-2 px-6 py-1 border-gray-800 bg-lprc">
+                  {{ record.lastPrice }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-oic"
+                  [ngClass]="{
+                    'bg-slate-800 text-white': Checklargest(
+                      item.Cdata,
+                      record.openInterest
+                    ),
+                    'bg-stone-800 text-gray-50': Checkmin(
+                      item.Cdata,
+                      record.openInterest
+                    )
+                  }"
+                >
+                  {{ record.openInterest }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800"
+                  [ngClass]="{
+                    'bg-pcrb': Checknp(record.changeinOpenInterest) == 1,
+                    'bg-pcrs': Checknp(record.changeinOpenInterest) == -1,
+                    'bg-stone-700 text-gray-50': ChecklargestChngoin(
+                      item.Cdata,
+                      record.changeinOpenInterest
+                    ),
+                    'bg-slate-700 text-white': ChecklargestChngoip(
+                      item.Cdata,
+                      record.changeinOpenInterest
+                    )
+                  }"
+                >
+                  {{ record.changeinOpenInterest }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-oiv"
+                  [ngClass]="{
+                    'bg-slate-600 text-white': Checklargestvol(
+                      item.Cdata,
+                      record.totalTradedVolume
+                    ),
+                    'bg-stone-600 text-gray-50': Checkminvol(
+                      item.Cdata,
+                      record.totalTradedVolume
+                    )
+                  }"
+                >
+                  {{ record.totalTradedVolume }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-iv"
+                  [ngClass]="{
+                    'bg-slate-500 text-white': Checklargestiv(
+                      item.Cdata,
+                      record.impliedVolatility
+                    ),
+                    'bg-stone-500 text-gray-50': Checkminiv(
+                      item.Cdata,
+                      record.impliedVolatility
+                    )
+                  }"
+                >
+                  {{ record.impliedVolatility }}
+                </td>
+              </tr>
+              <tr
+                class="border-2 border-red-700 font-bold text-teal-700 bg-yellow-400 text-sm"
+              >
+                <td>Total</td>
+                <td>=</td>
+                <td>{{ item.CEtotOI }}</td>
+                <td>{{ item.CEtotChangeInOI }}</td>
+                <td>{{ item.CEtotVol }}</td>
+                <td></td>
+              </tr>
             </ng-container>
-            <ng-template #elseTemplate>
-                <table>
-                    <thead class="text-base font-bold text-white text-center">
-                        <tr>
-                            <th colspan="15" class=" text-iv border-4 px-5 py-3 border-gray-800 bg-pink-400">
-                                <h1 class="text-lg text-center font-bold">PLease Select Your Time Frame</h1>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="8" class="px-5 py-3 border-4  border-gray-800 bg-pink-400">
-                                <input (click)="SelectTimeframe(5)" checked id="default-radio-3" type="radio" value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-3"
-                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">5
-                                    Minute
-                                    Time Frame</label>
-                            </th>
-                            <th colspan="7" class="px-5 py-3 border-4  border-gray-800 bg-pink-400">
-                                <input (click)="SelectTimeframe(15)" id="default-radio-4" type="radio" value=""
-                                    name="default-radio"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="default-radio-4"
-                                    class="ml-2 text-lg font-medium text-iv dark:text-gray-300">15
-                                    Minute
-                                    Time Frame</label>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th colspan="15" class="text-buy px-5 py-3 border-4 bg-cyan-700 border-gray-800">
-                                <h1 class="text-lg text-center font-bold">INTRADAY DATA ( Use This Indicator Only After
-                                    10:30AM )</h1>
-                            </th>
-                        </tr>
-                        <tr>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                Time</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">
-                                Call</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">Put
-                            </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">
-                                Difference</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="2">PCR
-                            </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                Option Signal</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" colspan="3">
-                                Prices</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-cyan-500" rowspan="3">
-                                VWAP Signal</th>
-                        </tr>
-                        <tr>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">Vol</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">OI</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">VOL</th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">Index </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">Future </th>
-                            <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">VWAP </th>
-                        </tr>
-                    </thead>
-                    <tbody class="font-bold text-sm text-center ">
-                        <tr *ngFor="let record of RecordedDerivativeIndex5m">
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sky-600">{{record.Time}}
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
-                                {{record.CEtotChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
-                                {{record.CEtotVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
-                                {{record.PEtotChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
-                                {{record.PEtotVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': Checknp(record.DiffChangeInOI)==1,'bg-pcrs': Checknp(record.DiffChangeInOI)==-1}">
-                                {{record.DiffChangeInOI}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': Checknp(record.DiffVol)==1,'bg-pcrs': Checknp(record.DiffVol)==-1}">
-                                {{record.DiffVol}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrbo': record.PCR>1, 'bg-pcrso':record.PCR<1,'bg-pcrr':record.PCR==1}">
-                                {{record.PCR}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrbo': record.OPCR>1, 'bg-pcrso':record.OPCR<1,'bg-pcrr':record.OPCR==1}">
-                                {{record.OPCR}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-buy" *ngIf="record.PCR>1">BUY</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sell" *ngIf="record.PCR<1">SELL</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-ready" *ngIf="record.PCR==1">READY
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">{{record.Original_Price}}
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800"
-                                [ngClass]="{'bg-pcrb': record.Future_Price>record.Vwap_Price, 'bg-pcrs':record.Future_Price<record.Vwap_Price,'bg-pcrr':record.Future_Price==record.Vwap_Price}">
-                                {{record.Future_Price}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">{{record.Vwap_Price}}</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-buy"
-                                *ngIf="record.Future_Price>record.Vwap_Price">BUY
-                            </td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-sell"
-                                *ngIf="record.Future_Price<record.Vwap_Price">
-                                SELL</td>
-                            <td class="px-5 py-3 border-4 border-gray-800 bg-ready"
-                                *ngIf="record.Future_Price==record.Vwap_Price">
-                                READY</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </ng-template>
-        </div>
+          </tbody>
+        </table>
+        <table>
+          <thead class="text-white text-sm font-bold text-center bg-orange-400">
+            <tr>
+              <th
+                class="px-6 py-1 border-2 border-gray-800 bg-cyan-500"
+                colspan="6"
+              >
+                {{ Title }} PUT OPTION
+              </th>
+            </tr>
+            <tr>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                SRIKE
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                PRICE
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                OPEN INT
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                CHANGE IN OI
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">
+                Volume
+              </th>
+              <th class="px-6 py-1 border-2 border-gray-800 bg-cyan-500">IV</th>
+            </tr>
+          </thead>
+          <tbody class="font-bold text-xs text-center">
+            <ng-container *ngFor="let item of LiveDerivativeIndex">
+              <tr *ngFor="let record of item.Pdata">
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-sky-600"
+                  [ngClass]="{
+                    'bg-fuchsia-700': Checkcentre(
+                      item.Cdata,
+                      record.strikePrice
+                    )
+                  }"
+                >
+                  {{ record.strikePrice }}
+                </td>
+                <td class="border-2 px-6 py-1 border-gray-800 bg-lprc">
+                  {{ record.lastPrice }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-oic"
+                  [ngClass]="{
+                    'bg-slate-800 text-white': Checklargest(
+                      item.Pdata,
+                      record.openInterest
+                    ),
+                    'bg-stone-800 text-gray-50': Checkmin(
+                      item.Pdata,
+                      record.openInterest
+                    )
+                  }"
+                >
+                  {{ record.openInterest }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800"
+                  [ngClass]="{
+                    'bg-stone-700 text-gray-50': ChecklargestChngoin(
+                      item.Pdata,
+                      record.changeinOpenInterest
+                    ),
+                    'bg-slate-700 text-white': ChecklargestChngoip(
+                      item.Pdata,
+                      record.changeinOpenInterest
+                    ),
+                    'bg-pcrb': Checknp(record.changeinOpenInterest) == 1,
+                    'bg-pcrs': Checknp(record.changeinOpenInterest) == -1
+                  }"
+                >
+                  {{ record.changeinOpenInterest }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-oiv"
+                  [ngClass]="{
+                    'bg-slate-600 text-white': Checklargestvol(
+                      item.Pdata,
+                      record.totalTradedVolume
+                    ),
+                    'bg-stone-600 text-gray-50': Checkminvol(
+                      item.Pdata,
+                      record.totalTradedVolume
+                    )
+                  }"
+                >
+                  {{ record.totalTradedVolume }}
+                </td>
+                <td
+                  class="border-2 px-6 py-1 border-gray-800 bg-iv"
+                  [ngClass]="{
+                    'bg-slate-500 text-white': Checklargestiv(
+                      item.Pdata,
+                      record.impliedVolatility
+                    ),
+                    'bg-stone-500 text-gray-50': Checkminiv(
+                      item.Pdata,
+                      record.impliedVolatility
+                    )
+                  }"
+                >
+                  {{ record.impliedVolatility }}
+                </td>
+              </tr>
+              <tr
+                class="border-2 border-red-700 font-bold text-teal-700 bg-yellow-400 text-sm"
+              >
+                <td>Total</td>
+                <td>=</td>
+                <td>{{ item.PEtotOI }}</td>
+                <td>{{ item.PEtotChangeInOI }}</td>
+                <td>{{ item.PEtotVol }}</td>
+                <td></td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
     </div>
+  </div>
 
+  <div class="flex justify-center mx-2 my-10">
+    <div class="overflow-x-auto">
+      <ng-container *ngIf="Show; else elseTemplate">
+        <table>
+          <thead class="font-bold text-base text-white text-center">
+            <tr>
+              <th
+                colspan="15"
+                class="px-5 py-3 border-4 text-iv bg-pink-400 border-gray-800"
+              >
+                <h1 class="text-lg text-center font-bold">
+                  PLease Select Your Time Frame
+                </h1>
+              </th>
+            </tr>
+            <tr>
+              <th
+                colspan="8"
+                class="px-5 py-3 border-4 border-gray-800 bg-pink-400"
+              >
+                <input
+                  (click)="SelectTimeframe(5)"
+                  id="default-radio-1"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-1"
+                  class="ml-2 text-lg font-medium text-iv dark:text-gray-300"
+                  >5 Minute Time Frame</label
+                >
+              </th>
+              <th
+                colspan="7"
+                class="px-5 py-3 border-4 border-gray-800 bg-pink-400"
+              >
+                <input
+                  (click)="SelectTimeframe(15)"
+                  checked
+                  id="default-radio-2"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-2"
+                  class="ml-2 text-lg font-medium text-iv dark:text-gray-300"
+                  >15 Minute Time Frame</label
+                >
+              </th>
+            </tr>
+            <tr>
+              <th
+                colspan="15"
+                class="px-5 py-3 border-4 text-buy bg-cyan-700 border-gray-800"
+              >
+                <h1 class="text-lg text-center font-bold">
+                  INTRADAY DATA ( Use This Indicator Only After 10:30AM )
+                </h1>
+              </th>
+            </tr>
+            <tr>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                Time
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Call
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Put
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Difference
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                PCR
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                Option Signal
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="3"
+              >
+                Prices
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                VWAP Signal
+              </th>
+            </tr>
+            <tr>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                VOL
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                Index
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                Future
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                VWAP
+              </th>
+            </tr>
+          </thead>
+          <tbody class="font-bold text-sm text-center">
+            <tr *ngFor="let record of RecordedDerivativeIndex15m">
+              <td class="px-5 py-3 border-4 border-gray-800 bg-sky-600">
+                {{ record.Time }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
+                {{ record.CEtotChangeInOI }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
+                {{ record.CEtotVol }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
+                {{ record.PEtotChangeInOI }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
+                {{ record.PEtotVol }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': Checknp(record.DiffChangeInOI) == 1,
+                  'bg-pcrs': Checknp(record.DiffChangeInOI) == -1
+                }"
+              >
+                {{ record.DiffChangeInOI }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': Checknp(record.DiffVol) == 1,
+                  'bg-pcrs': Checknp(record.DiffVol) == -1
+                }"
+              >
+                {{ record.DiffVol }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrbo': record.PCR > 1,
+                  'bg-pcrso': record.PCR < 1,
+                  'bg-pcrr': record.PCR == 1
+                }"
+              >
+                {{ record.PCR }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrbo': record.OPCR > 1,
+                  'bg-pcrso': record.OPCR < 1,
+                  'bg-pcrr': record.OPCR == 1
+                }"
+              >
+                {{ record.OPCR }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-buy"
+                *ngIf="record.PCR > 1"
+              >
+                BUY
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-sell"
+                *ngIf="record.PCR < 1"
+              >
+                SELL
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-ready"
+                *ngIf="record.PCR == 1"
+              >
+                READY
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">
+                {{ record.Original_Price }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': record.Future_Price > record.Vwap_Price,
+                  'bg-pcrs': record.Future_Price < record.Vwap_Price,
+                  'bg-pcrr': record.Future_Price == record.Vwap_Price
+                }"
+              >
+                {{ record.Future_Price }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">
+                {{ record.Vwap_Price }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-buy"
+                *ngIf="record.Future_Price > record.Vwap_Price"
+              >
+                BUY
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-sell"
+                *ngIf="record.Future_Price < record.Vwap_Price"
+              >
+                SELL
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-ready"
+                *ngIf="record.Future_Price == record.Vwap_Price"
+              >
+                READY
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <table>
+          <thead class="text-base font-bold text-white text-center">
+            <tr>
+              <th
+                colspan="15"
+                class="text-iv border-4 px-5 py-3 border-gray-800 bg-pink-400"
+              >
+                <h1 class="text-lg text-center font-bold">
+                  PLease Select Your Time Frame
+                </h1>
+              </th>
+            </tr>
+            <tr>
+              <th
+                colspan="8"
+                class="px-5 py-3 border-4 border-gray-800 bg-pink-400"
+              >
+                <input
+                  (click)="SelectTimeframe(5)"
+                  checked
+                  id="default-radio-3"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-3"
+                  class="ml-2 text-lg font-medium text-iv dark:text-gray-300"
+                  >5 Minute Time Frame</label
+                >
+              </th>
+              <th
+                colspan="7"
+                class="px-5 py-3 border-4 border-gray-800 bg-pink-400"
+              >
+                <input
+                  (click)="SelectTimeframe(15)"
+                  id="default-radio-4"
+                  type="radio"
+                  value=""
+                  name="default-radio"
+                  class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                />
+                <label
+                  for="default-radio-4"
+                  class="ml-2 text-lg font-medium text-iv dark:text-gray-300"
+                  >15 Minute Time Frame</label
+                >
+              </th>
+            </tr>
+            <tr>
+              <th
+                colspan="15"
+                class="text-buy px-5 py-3 border-4 bg-cyan-700 border-gray-800"
+              >
+                <h1 class="text-lg text-center font-bold">
+                  INTRADAY DATA ( Use This Indicator Only After 10:30AM )
+                </h1>
+              </th>
+            </tr>
+            <tr>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                Time
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Call
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Put
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                Difference
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="2"
+              >
+                PCR
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                Option Signal
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                colspan="3"
+              >
+                Prices
+              </th>
+              <th
+                class="px-5 py-3 border-4 border-gray-800 bg-cyan-500"
+                rowspan="3"
+              >
+                VWAP Signal
+              </th>
+            </tr>
+            <tr>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                Vol
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-purple-500">
+                OI
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-orange-400">
+                VOL
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                Index
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                Future
+              </th>
+              <th class="px-5 py-3 border-4 border-gray-800 bg-lime-500">
+                VWAP
+              </th>
+            </tr>
+          </thead>
+          <tbody class="font-bold text-sm text-center">
+            <tr *ngFor="let record of RecordedDerivativeIndex5m">
+              <td class="px-5 py-3 border-4 border-gray-800 bg-sky-600">
+                {{ record.Time }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
+                {{ record.CEtotChangeInOI }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
+                {{ record.CEtotVol }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-oi">
+                {{ record.PEtotChangeInOI }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-volume">
+                {{ record.PEtotVol }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': Checknp(record.DiffChangeInOI) == 1,
+                  'bg-pcrs': Checknp(record.DiffChangeInOI) == -1
+                }"
+              >
+                {{ record.DiffChangeInOI }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': Checknp(record.DiffVol) == 1,
+                  'bg-pcrs': Checknp(record.DiffVol) == -1
+                }"
+              >
+                {{ record.DiffVol }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrbo': record.PCR > 1,
+                  'bg-pcrso': record.PCR < 1,
+                  'bg-pcrr': record.PCR == 1
+                }"
+              >
+                {{ record.PCR }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrbo': record.OPCR > 1,
+                  'bg-pcrso': record.OPCR < 1,
+                  'bg-pcrr': record.OPCR == 1
+                }"
+              >
+                {{ record.OPCR }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-buy"
+                *ngIf="record.PCR > 1"
+              >
+                BUY
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-sell"
+                *ngIf="record.PCR < 1"
+              >
+                SELL
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-ready"
+                *ngIf="record.PCR == 1"
+              >
+                READY
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">
+                {{ record.Original_Price }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800"
+                [ngClass]="{
+                  'bg-pcrb': record.Future_Price > record.Vwap_Price,
+                  'bg-pcrs': record.Future_Price < record.Vwap_Price,
+                  'bg-pcrr': record.Future_Price == record.Vwap_Price
+                }"
+              >
+                {{ record.Future_Price }}
+              </td>
+              <td class="px-5 py-3 border-4 border-gray-800 bg-vwap">
+                {{ record.Vwap_Price }}
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-buy"
+                *ngIf="record.Future_Price > record.Vwap_Price"
+              >
+                BUY
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-sell"
+                *ngIf="record.Future_Price < record.Vwap_Price"
+              >
+                SELL
+              </td>
+              <td
+                class="px-5 py-3 border-4 border-gray-800 bg-ready"
+                *ngIf="record.Future_Price == record.Vwap_Price"
+              >
+                READY
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </div>
+  </div>
 </div>
 <ng-template #elseTemplate>
-    <div class="my-10 mx-2 flex justify-center">
-        <img src="../../../assets/Loader.gif" alt="">
-    </div>
+  <div class="my-10 mx-2 flex justify-center">
+    <img src="../../../assets/Loader.gif" alt="" />
+  </div>
 </ng-template>
