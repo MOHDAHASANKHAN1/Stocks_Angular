@@ -55,7 +55,7 @@ export class OhlComponent implements OnInit {
       this.route = data;
     });
     this.sservice.getOHL().subscribe((data: OHL) => {
-      if (this.route == 'MAS') {
+      if (this.route == 'OHL') {
         this.OHL = data;
         this.store.dispatch(
           new Check_Route({
