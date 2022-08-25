@@ -6,12 +6,10 @@ import { CheckType } from '../Interfaces/Check';
   providedIn: 'root',
 })
 export class CheckService {
-  checkLogin() {
-    return this.http.get<CheckType>(
+  checkLogin(Token: String) {
+    return this.http.post<CheckType>(
       'https://stocks-backend-nse.herokuapp.com/Check',
-      {
-        withCredentials: true,
-      }
+      { Token }
     );
   }
   constructor(private http: HttpClient) {}

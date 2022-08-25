@@ -28,19 +28,21 @@ export class HeaderComponent implements OnInit {
     private cookie: CookieService
   ) {
     this.router.events.subscribe((ev) => {
-      this.service.checkLogin().subscribe((data: CheckType) => {
-        if (data.Success) {
-          this.Success = data.Success;
-          if (this.Success) {
-            this.store.select(getRoute).subscribe((data: String) => {
-              this.Route = data;
-            });
-            this.store.select(getTitle).subscribe((data: String) => {
-              this.Title = data;
-            });
+      this.service
+        .checkLogin(this.cookie.get('Token'))
+        .subscribe((data: CheckType) => {
+          if (data.Success) {
+            this.Success = data.Success;
+            if (this.Success) {
+              this.store.select(getRoute).subscribe((data: String) => {
+                this.Route = data;
+              });
+              this.store.select(getTitle).subscribe((data: String) => {
+                this.Title = data;
+              });
+            }
           }
-        }
-      });
+        });
     });
   }
 

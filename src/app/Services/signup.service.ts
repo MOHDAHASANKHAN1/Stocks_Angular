@@ -10,10 +10,7 @@ export class SignupService {
   signupUser(data: SignupType) {
     return this.http.post<CheckType>(
       'https://stocks-backend-nse.herokuapp.com/Register',
-      data,
-      {
-        withCredentials: true,
-      }
+      data
     );
   }
 

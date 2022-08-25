@@ -7,6 +7,7 @@ import { Check_Route } from 'src/app/Redux/Action/Check_Route';
 import { CheckService } from 'src/app/Services/check.service';
 import { Router } from '@angular/router';
 import { CheckType } from 'src/app/Interfaces/Check';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-tgnl',
@@ -36,15 +37,18 @@ export class TgnlComponent implements OnInit {
     private sservice: StocksService,
     private store: Store<RootReducerState>,
     private router: Router,
-    private service: CheckService
+    private service: CheckService,
+    private cookie: CookieService
   ) {
     this.store.dispatch(new Check_Route({ Route: 'TGNL', Title: '' }));
-    this.service.checkLogin().subscribe((data: CheckType) => {
-      if (!data.Success) {
-        this.router.navigate(['/']);
-        this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
-      }
-    });
+    this.service
+      .checkLogin(this.cookie.get('Token'))
+      .subscribe((data: CheckType) => {
+        if (!data.Success) {
+          this.router.navigate(['/']);
+          this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
+        }
+      });
   }
   route: String = '';
   ngOnInit(): void {

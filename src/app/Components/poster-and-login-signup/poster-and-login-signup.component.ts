@@ -84,14 +84,16 @@ export class PosterAndLoginSignupComponent implements OnInit {
     private service: CheckService,
     private cookie: CookieService
   ) {
-    this.service.checkLogin().subscribe((data: CheckType) => {
-      if (data.Success) {
-        this.Success = data.Success;
-        this.posterT = true;
-        this.registerT = false;
-        this.loginT = false;
-      }
-    });
+    this.service
+      .checkLogin(this.cookie.get('Token'))
+      .subscribe((data: CheckType) => {
+        if (data.Success) {
+          this.Success = data.Success;
+          this.posterT = true;
+          this.registerT = false;
+          this.loginT = false;
+        }
+      });
   }
 
   ngOnInit(): void {}

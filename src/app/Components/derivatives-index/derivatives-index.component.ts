@@ -10,6 +10,7 @@ import { RootReducerState } from 'src/app/Redux/Reducer';
 import { DerivativeIndexService } from 'src/app/Services/derivative-index.service';
 import { CheckService } from 'src/app/Services/check.service';
 import { CheckType } from 'src/app/Interfaces/Check';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-derivatives-index',
@@ -96,14 +97,17 @@ export class DerivativesIndexComponent implements OnInit {
     private router: Router,
     private dservice: DerivativeIndexService,
     private store: Store<RootReducerState>,
-    private service: CheckService
+    private service: CheckService,
+    private cookie: CookieService
   ) {
-    this.service.checkLogin().subscribe((data: CheckType) => {
-      if (!data.Success) {
-        this.router.navigate(['/']);
-        this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
-      }
-    });
+    this.service
+      .checkLogin(this.cookie.get('Token'))
+      .subscribe((data: CheckType) => {
+        if (!data.Success) {
+          this.router.navigate(['/']);
+          this.store.dispatch(new Check_Route({ Route: '', Title: '' }));
+        }
+      });
   }
 
   ngOnInit(): void {

@@ -10,10 +10,7 @@ export class LoginService {
   loginUser(data: LoginType) {
     return this.http.post<CheckType>(
       'https://stocks-backend-nse.herokuapp.com/Login',
-      data,
-      {
-        withCredentials: true,
-      }
+      data
     );
   }
   constructor(private http: HttpClient) {}
