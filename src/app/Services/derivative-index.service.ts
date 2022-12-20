@@ -17,13 +17,13 @@ export class DerivativeIndexService {
 
   getRecordedDerivativeIndex5m(Symbol: String) {
     return this.http.get<RecordedDerivativeIndex>(
-      `https://stocks-backend-nse.herokuapp.com/recorded-${Symbol}-5m`
+      `https://stocks-backend-node-rest.vercel.app/recorded-${Symbol}-5m`
     );
   }
 
   getRecordedDerivativeIndex15m(Symbol: String) {
     return this.http.get<RecordedDerivativeIndex>(
-      `https://stocks-backend-nse.herokuapp.com/recorded-${Symbol}-15m`
+      `https://stocks-backend-node-rest.vercel.app/recorded-${Symbol}-15m`
     );
   }
 

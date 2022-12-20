@@ -7,15 +7,21 @@ import { OHL, MAS, TGNL } from '../Interfaces/Stocks';
 })
 export class StocksService {
   getOHL() {
-    return this.http.get<OHL>(`https://stocks-backend-nse.herokuapp.com/OHL`);
+    return this.http.get<OHL>(
+      `https://stocks-backend-node-rest.vercel.app/OHL`
+    );
   }
 
   getMAS() {
-    return this.http.get<MAS>(`https://stocks-backend-nse.herokuapp.com/MAS`);
+    return this.http.get<MAS>(
+      `https://stocks-backend-node-rest.vercel.app/MAS`
+    );
   }
 
   getTGNL() {
-    return this.http.get<TGNL>(`https://stocks-backend-nse.herokuapp.com/TGNL`);
+    return this.http.get<TGNL>(
+      `https://stocks-backend-node-rest.vercel.app/TGNL`
+    );
   }
 
   constructor(private http: HttpClient) {}
