@@ -11,19 +11,19 @@ import {
 export class DerivativeIndexService {
   getLiveDerivativeIndex(Symbol: String) {
     return this.http.get<LiveDerivativeIndex>(
-      `https://stocks-backend-nse.herokuapp.com/Live-${Symbol}`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app//Live-${Symbol}`
     );
   }
 
   getRecordedDerivativeIndex5m(Symbol: String) {
     return this.http.get<RecordedDerivativeIndex>(
-      `https://stocks-backend-node-rest.vercel.app/recorded-${Symbol}-5m`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app//recorded-${Symbol}-5m`
     );
   }
 
   getRecordedDerivativeIndex15m(Symbol: String) {
     return this.http.get<RecordedDerivativeIndex>(
-      `https://stocks-backend-node-rest.vercel.app/recorded-${Symbol}-15m`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app//recorded-${Symbol}-15m`
     );
   }
 

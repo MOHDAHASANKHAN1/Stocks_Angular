@@ -9,7 +9,7 @@ import { LoginType } from '../Interfaces/Login';
 export class LoginService {
   loginUser(data: LoginType) {
     return this.http.post<CheckType>(
-      'https://stocks-backend-node-rest.vercel.app/Login',
+      'https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/Login',
       data
     );
   }

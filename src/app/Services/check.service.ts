@@ -8,7 +8,7 @@ import { CheckType } from '../Interfaces/Check';
 export class CheckService {
   checkLogin(Token: String) {
     return this.http.post<CheckType>(
-      'https://stocks-backend-node-rest.vercel.app/Check',
+      'https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/Check',
       { Token }
     );
   }

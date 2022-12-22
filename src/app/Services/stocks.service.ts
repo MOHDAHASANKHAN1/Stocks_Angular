@@ -8,19 +8,19 @@ import { OHL, MAS, TGNL } from '../Interfaces/Stocks';
 export class StocksService {
   getOHL() {
     return this.http.get<OHL>(
-      `https://stocks-backend-node-rest.vercel.app/OHL`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/OHL`
     );
   }
 
   getMAS() {
     return this.http.get<MAS>(
-      `https://stocks-backend-node-rest.vercel.app/MAS`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/MAS`
     );
   }
 
   getTGNL() {
     return this.http.get<TGNL>(
-      `https://stocks-backend-node-rest.vercel.app/TGNL`
+      `https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/TGNL`
     );
   }
 

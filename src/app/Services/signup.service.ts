@@ -9,7 +9,7 @@ import { SignupType } from '../Interfaces/Signup';
 export class SignupService {
   signupUser(data: SignupType) {
     return this.http.post<CheckType>(
-      'https://stocks-backend-node-rest.vercel.app/Register',
+      'https://stocks-backend-node-rest-6gbnyungo-mohdahasankhan1.vercel.app/Register',
       data
     );
   }
